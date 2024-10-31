@@ -14,7 +14,7 @@
     ],
     "scripts": {
         "dev": "hugo server -s exampleSite --themesDir=../.. --disableFastRender --bind 0.0.0.0",
-        "build": "hugo --gc --minify --templateMetrics --templateMetricsHints --forceSyncStatic",
+        "build": "hugo --gc --minify --templateMetrics --templateMetricsHints --forceSyncStatic -s exampleSite --themesDir=../..",
         "init": "hugo mod get -u ./... && hugo mod tidy && hugo mod vendor"
     },
     "dependencies": {

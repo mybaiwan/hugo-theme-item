@@ -17,7 +17,7 @@
 
 ## 快速开始
 
-1. 安装 Hugo(`0.120.0`), go(`1.20.0`), Node.js(`20.17.0`)
+1. 安装 Hugo、go 以及 Node.js
 2. 克隆仓库
    ```shell
     git clone https://github.com/fordes123/hugo-theme-item

@@ -6,10 +6,9 @@ on:
   push:
     branches: ["main"]
     paths-ignore:
-        - '.github/**'
-        - '.devcontainer/**'
-        - 'LICENSE'
-        - 'README.md'
+      - '.devcontainer/**'
+      - 'LICENSE'
+      - 'README.md'
 
 # Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
 permissions:
@@ -55,6 +54,9 @@ jobs:
 
       - name: Install npm dependencies
         run: npm install
+
+      - name: Initialize Hugo modules
+        run: npm run init
 
       - name: Publish to GitHub Pages
         run: npm run build

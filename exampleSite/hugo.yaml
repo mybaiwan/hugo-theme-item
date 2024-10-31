@@ -1,0 +1,48 @@
+theme: "hugo-theme-item"
+languageCode: "zh-CN"
+baseurl: "http://example.com/"
+title: "ITEM.ink"
+
+author: "fordes123"
+copyright: "Copyright ©2024, fordes123, all rights reserved."
+
+params:
+
+  favicon: "favicon.ico"
+
+  # 默认主题模式，可选 dark light default
+  themePreset: dark
+
+  # 站点基本信息
+  siteName: "ITEM"
+  siteDesc: "修行的路总是孤独的，因为智慧必然来自孤独。"
+  author: "fordes123"
+
+  # 一言
+  # 参考文档: https://developer.hitokoto.cn/sentence/
+  hitokoto:
+    enable: false
+    category:
+      - "i"
+      - "k"
+menu:
+  header:
+    - name: Articles
+      url: "/articles/"
+      weight: 10
+
+    - name: About
+      url: "/about/"
+      weight: 20
+
+  footer:
+    - name: ICP备00001号
+      url: "#"
+
+markup:
+  highlight:
+    style: "dracula"
+
+  goldmark:
+    renderer:
+      unsafe: true

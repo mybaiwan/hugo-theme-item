@@ -1,0 +1,14 @@
+{{ $darkMode := resources.Get "js/dark-mode.js" | minify | fingerprint }}
+<script src="{{ $darkMode.RelPermalink }}"></script>
+
+{{ $sidebar := resources.Get "js/script.js" | minify | fingerprint }}
+<script src="{{ $sidebar.RelPermalink }}"></script>
+
+{{ if eq .Kind "404" }} 
+{{ $dino := resources.Get "js/dino.js" | minify | fingerprint }}
+<script src="{{ $dino.RelPermalink }}"></script>
+{{ end }}
+
+{{- if and (or .Params.katex (and .Site.Params.katex (ne .Params.katex false))) (or .IsPage .IsHome) }}
+{{ partial "katex/assets/js" . }}
+{{ end }}

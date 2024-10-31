@@ -1,0 +1,29 @@
+{
+    "name": "hugo-theme-item",
+    "version": "0.0.13",
+    "description": "Hugo theme for website navigation using TailwindCSS and daisyUI.",
+    "main": "index.js",
+    "repository": "https://github.com/fordes123/hugo-theme-item",
+    "author": "fordes123 <github@fordes123.dev>",
+    "license": "GPL-3.0",
+    "browserslist": [
+        "last 1 version",
+        "> 1%",
+        "maintained node versions",
+        "not dead"
+    ],
+    "scripts": {
+        "dev": "hugo server -s exampleSite --themesDir=../.. --disableFastRender --bind 0.0.0.0",
+        "build": "hugo --gc --minify --templateMetrics --templateMetricsHints --forceSyncStatic",
+        "init": "hugo mod get -u ./... && hugo mod tidy && hugo mod vendor"
+    },
+    "dependencies": {
+        "@tailwindcss/aspect-ratio": "^0.4.x",
+        "@tailwindcss/typography": "^0.5.x",
+        "autoprefixer": "^10.4.x",
+        "postcss": "^8.4.x",
+        "postcss-cli": "^11.x",
+        "tailwindcss": "^3.4.x",
+        "daisyui": "^4.12.x"
+    }
+}

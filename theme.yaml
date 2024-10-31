@@ -1,0 +1,15 @@
+name: "ITEM"
+license: "GPL-3.0"
+licenselink: "https://github.com/fordes123/hugo-theme-item/blob/main/LICENSE"
+description: "A website navigation theme using Tailwind CSS."
+homepage:  "https://github.com/fordes123/hugo-theme-item"
+tags:
+  - "Hugo"
+  - "Tailwind CSS",
+  - "theme"
+  - "navigation"
+min_version: "0.124.0"
+
+author:
+  name: "fordes123"
+  url: "https://github.com/fordes123"

@@ -1,0 +1,19 @@
+{{ define "main" }}
+    <main class="flex-1 p-4 lg:p-6 overflow-y-scroll">
+
+        {{- partial "component/toolbox" . -}}
+
+        {{- partial "component/search" . -}}
+
+        {{ range $index, $item := .Site.Data.navigate }}
+            {{ if $item.children }}
+                {{ range $child := $item.children }}
+                    {{- partial "component/nav-block" (dict "item" $child) -}}
+                {{ end }}
+            {{ else }}
+                {{- partial "component/nav-block" (dict "item" $item) -}}
+            {{ end }}
+        {{ end }}
+    </main>
+    {{- partial "component/scrolltop" -}}
+{{ end }}

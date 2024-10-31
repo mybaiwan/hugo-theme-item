@@ -1,0 +1,65 @@
+name: 🐛 提交 Bug
+description: 提交您遇到的任何问题，帮助我们完善本项目
+
+body:
+  - type: input
+    id: hugo-version
+    attributes:
+      label: Hugo Extended 版本号
+      description: 在终端中使用 `hugo version` 命令查看 Hugo 版本。
+    validations:
+      required: true
+
+  - type: input
+    id: go-version
+    attributes:
+      label: Go 版本号
+      description: 在终端中使用 `go version` 命令查看 Go 版本。
+    validations:
+      required: true
+
+  - type: input
+    id: node-version
+    attributes:
+      label: Node.js 版本号
+      description: 在终端中使用 `node -v` 命令查看 Node.js 版本。
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: make-sure
+    attributes:
+      label: 必要检查
+      description: |
+        在提交问题之前，请确认您已彻底搜索了有关同一问题的任何现有报告。如果未发现相关问题，请继续报告。
+      options:
+        - label: 确认经过搜索，没有发现任何相关问题。
+          required: true
+
+  - type: textarea
+    id: expected-behavior
+    attributes:
+      label: 预期行为
+      description: 清楚地描述您期望发生的事情。
+    validations:
+      required: true
+
+  - type: textarea
+    id: steps-to-reproduce
+    attributes:
+      label: 重现步骤
+      description: |
+        请解释重复此问题所需的步骤。包括详细的命令和预期结果。
+      placeholder: |
+        1.
+        2.
+        3.
+    validations:
+      required: true
+
+  - type: textarea
+    id: additional-information
+    attributes:
+      label: 其他信息
+      description: |
+        列出与您的问题相关的任何其他信息。您可以使用 Markdown 进行格式设置，包括代码块、链接等。

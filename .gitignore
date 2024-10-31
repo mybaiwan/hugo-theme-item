@@ -1,0 +1,12 @@
+/.idea
+/.vscode
+/_vendor
+/node_modules
+/exampleSite/public
+/exampleSite/resources
+/exampleSite/hugo_stats.json
+/exampleSite/.hugo_build.lock
+/public
+/resources
+go.sum
+.hugo_build.lock

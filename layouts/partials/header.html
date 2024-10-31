@@ -1,0 +1,76 @@
+<div class="
+  bg-base-100 text-base-content sticky top-0 z-30 flex h-16 w-full justify-center bg-opacity-90 backdrop-blur shadow-sm transition-shadow duration-100 [transform:translate3d(0,0,0)]">
+    <nav class="navbar w-full">
+        <div class="flex flex-1 md:gap-1 lg:gap-2">
+            <label class="btn btn-square btn-ghost drawer-button">
+                <input id="side-control" type="checkbox" class="drawer-toggle"/>
+                <!--@formatter:off-->
+                {{ partial "utils/icon" (dict "name" "lucide-menu" "class" "inline-block h-5 w-5 stroke-current md:h-6 md:w-6") }}
+                <!--@formatter:on-->
+            </label>
+            <div class="flex items-center gap-2 lg:hidden">
+                <a data-sveltekit-preload-data="" href="/"
+                   aria-current="page" aria-label="{{ .Site.Title }}"
+                   class="flex-0 btn btn-ghost gap-1 px-2 md:gap-2">
+                    <!--@formatter:off-->
+                    {{ partial "utils/icon" (dict "name" "images/favicon.png" "class" "h-6 w-6 md:h-8 md:w-8") }}
+                    <!--@formatter:on-->
+                    <span class="font-title text-base-content font-serif from-neutral-700 text-xl md:text-2xl">{{ .Site.Title }}</span></a>
+            </div>
+            <div class="hidden w-full max-w-sm lg:flex">
+
+            </div>
+        </div>
+        <div class="flex-0">
+            <div title="Github" class="">
+                <a tabindex="0" role="button" href="https://github.com/fordes123/hugo-theme-item" target="_blank"
+                   class="btn btn-ghost">
+                    <!--@formatter:off-->
+                    {{ partial "utils/icon" (dict "name" "lucide-github" "class" "h-5 w-5 stroke-current")}}
+                    <!--@formatter:on-->
+                </a>
+            </div>
+            <div title="Change Theme" class="dropdown dropdown-end hidden [@supports(color:oklch(0%_0_0))]:block">
+                <div tabindex="0" role="button" class="btn btn-ghost">
+                    <!--@formatter:off-->
+                    {{ partial "utils/icon" (dict "name" "lucide-palette" "class" "h-5 w-5 stroke-current md:hidden")}}
+                    <!--@formatter:on-->
+                    <span class="hidden font-normal md:inline">主题</span>
+                    <!--@formatter:off-->
+                    {{ partial "utils/icon" (dict "name" "fas-chevron-down" "class" "hidden h-3 w-3 fill-current opacity-60 sm:inline-block")}}
+                    <!--@formatter:on-->
+                </div>
+                <ul tabindex="0"
+                    class="dropdown-content bg-base-200 text-base-content rounded-box top-px z-[1] w-32 p-2 border border-white/5 shadow-2xl outline outline-1 outline-black/5 mt-16 space-y-1">
+                    <li>
+                        <label>
+                            <input type="radio" name="theme-item" class="hidden" value="default">
+                            <div class="btn btn-sm btn-block btn-ghost justify-start">
+                                <span>{{ partial "utils/icon" (dict "name" "lucide-contrast" "class" "h-5 w-5") }}</span>
+                                <span>跟随系统</span>
+                            </div>
+                        </label>
+                    </li>
+                    <li>
+                        <label>
+                            <input type="radio" name="theme-item" class="hidden" value="dark">
+                            <div class="btn btn-sm btn-block btn-ghost justify-start">
+                                <span>{{ partial "utils/icon" (dict "name" "lucide-moon" "class" "h-5 w-5") }}</span>
+                                <span>深色模式</span>
+                            </div>
+                        </label>
+                    </li>
+                    <li>
+                        <label>
+                            <input type="radio" name="theme-item" class="hidden" value="light">
+                            <div class="btn btn-sm btn-block btn-ghost justify-start">
+                                <span>{{ partial "utils/icon" (dict "name" "lucide-sun" "class" "h-5 w-5") }}</span>
+                                <span>浅色模式</span>
+                            </div>
+                        </label>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</div>

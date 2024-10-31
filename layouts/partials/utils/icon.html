@@ -1,0 +1,28 @@
+
+{{ $name := .name }}
+{{ $class := .class }}
+
+{{ if and (not $name) (reflect.IsString .) }}
+    {{ $name = . }}
+{{ end }}
+
+{{ if strings.HasPrefix $name "<svg" }}
+    <i class="{{ $class }}">{{ $name | safeHTML }}</i>
+{{ else }}
+    {{ if not (strings.Contains $name ".") }}
+        {{ $parts := split $name "-" }}
+        {{ if ge (len $parts) 2 }}
+            {{ $vendor := index $parts 0 }}
+            {{ $iconName := delimit (after 1 $parts) "-" }}
+            {{ partial "icons/icon" (dict "vendor" $vendor "name" $iconName "className" $class) }}
+        {{ end }}
+    {{ else }}
+        {{ with resources.Get $name }}
+            {{ if eq .MediaType.SubType "svg" }}
+                <i class="{{ $class }}">{{ .Content | safeHTML }}</i>
+            {{ else }}
+                <img src="{{ .RelPermalink }}" class="{{ $class }}" />
+            {{ end }}
+        {{ end }}
+    {{ end }}
+{{ end }}

@@ -1,0 +1,39 @@
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{{ block "title" . }}
+        {{- .Title }} - {{ .Site.Title -}}
+        {{ end }}</title>
+    {{- if .Description }}
+    <meta name="description" content="{{ .Description }}" />
+    {{ end -}}
+    {{- if .Keywords }}
+    <meta name="keywords" content="{{ delimit .Keywords " ," }}" />
+    {{ end -}}
+    {{- if .Params.Author }}
+    <meta name="author" content="{{ .Params.Author}}" />
+    {{ end -}}
+    {{ hugo.Generator }}
+
+    {{ partialCached "utils/css" . }}
+
+    <script>
+        var state = localStorage.getItem("data-theme") || "{{ .Site.Params.themePreset }}";
+        if (state === null || state === "default") {
+            localStorage.setItem("data-theme", "default");
+            state = window.matchMedia('(prefers-color-scheme: dark)').matches ? "dark" : "light";
+        }
+
+        function applyTheme(isDark) {
+            document.documentElement.setAttribute("data-theme", isDark ? "dark" : "light");
+        }
+
+        window.matchMedia("(prefers-color-scheme: dark)").addEventListener('change', event => {
+            if (localStorage.getItem("data-theme") === "default") {
+                applyTheme(event.matches);
+            }
+        });
+
+        applyTheme(state === "dark");
+    </script>
+</head>

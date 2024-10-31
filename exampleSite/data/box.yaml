@@ -1,0 +1,72 @@
+# The Tools module configuration
+---
+
+- name: News
+  icon: fas-fire
+  link: "https://www.hsmy.fun"
+  background: "linear-gradient(45deg, #97b3ff, #2f66ff)"
+
+- name: Map
+  icon: fas-map
+  link: https://www.google.com/maps
+  background: "linear-gradient(60deg, #ff8788, #ff1a46)"
+
+- name: Wechat
+  icon: fab-weixin
+  link: https://filehelper.weixin.qq.com
+  background: "linear-gradient(90deg, #2ecc71, #44bd32)"
+
+- name: Speedtest
+  icon: fas-gauge-simple
+  link: https://www.speedtest.net
+  background: "linear-gradient(120deg, #a3f7ec, #4fdcca)"
+
+- name: TempMail
+  icon: fas-at
+  link: https://temp-mail.org/
+  background: "linear-gradient(45deg, #b5b4ff, #7675f9)"
+
+- name: NetworkTest
+  icon: fas-ethernet
+  link: https://debug.skk.moe/
+  background: "linear-gradient(90deg, #ffacac, #ef5959)"
+
+- name: QRCode
+  icon: fas-qrcode
+  link: https://cli.im/
+  background: "linear-gradient(45deg, #ffadad, #ee3d7d)"
+
+- name: DocConvert
+  icon: fas-file-word
+  link: https://pdfcandy.com/cn/
+  background: "linear-gradient(60deg, #afddff, #44aefb)"
+
+- name: Markdown
+  icon: fab-markdown
+  link: https://marktion.io/
+  background: "linear-gradient(120deg, #ffd495, #ffa31b)"
+
+- name: SiteCheck
+  icon: fas-network-wired
+  link: https://zhale.me/http/
+  background: "linear-gradient(120deg, #6c5ce7, #34495e)"
+
+- name: Live
+  icon: fas-tv
+  link: http://live.yj1211.work/index/home/recommend
+  background: "linear-gradient(120deg, #ffacac, #ef5959)"
+
+- name: WebTools
+  icon: fas-atom
+  link: https://www.iamwawa.cn/
+  background: "linear-gradient(135deg, #ffe000, #799f0c)"
+
+- name: Tax Rate Calculate
+  icon: fas-scale-balanced
+  link: https://hizdm.cn/
+  background: "linear-gradient(120deg, #fff6b7, #f6416c)"
+
+- name: File Share
+  icon: fas-infinity
+  link: https://wormhole.app/
+  background: "linear-gradient(120deg, #663d74, #dcc7e1)"

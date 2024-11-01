@@ -11,7 +11,7 @@ params:
   favicon: "favicon.ico"
 
   # 默认主题模式，可选 dark light default
-  themePreset: dark
+  themePreset: default
 
   # 站点基本信息
   siteName: "ITEM"
@@ -21,7 +21,7 @@ params:
   # 一言
   # 参考文档: https://developer.hitokoto.cn/sentence/
   hitokoto:
-    enable: false
+    enable: true
     category:
       - "i"
       - "k"
@@ -36,8 +36,8 @@ menu:
       weight: 20
 
   footer:
-    - name: ICP备00001号
-      url: "#"
+    - name: Github
+      url: "https://github.com/fordes123/hugo-theme-item"
 
 markup:
   highlight:

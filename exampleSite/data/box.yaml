@@ -43,7 +43,7 @@
 
 - name: Markdown
   icon: fab-markdown
-  link: https://marktion.io/
+  link: https://markdown.lovejade.cn/
   background: "linear-gradient(120deg, #ffd495, #ffa31b)"
 
 - name: SiteCheck
@@ -53,7 +53,7 @@
 
 - name: Live
   icon: fas-tv
-  link: http://live.yj1211.work/index/home/recommend
+  link: https://lemonlive.deno.dev/
   background: "linear-gradient(120deg, #ffacac, #ef5959)"
 
 - name: WebTools
@@ -70,3 +70,8 @@
   icon: fas-infinity
   link: https://wormhole.app/
   background: "linear-gradient(120deg, #663d74, #dcc7e1)"
+
+- name: DNS Leak
+  icon: fas-route
+  link: https://browserleaks.com/dns
+  background: "linear-gradient(120deg, #d4fc79 0%, #96e6a1 100%)"

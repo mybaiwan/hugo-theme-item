@@ -2,30 +2,30 @@
 ---
 - name: Google
   icon: fab-google
-  link: https://www.google.com
+  link: https://www.google.com/search?q=
 
 - name: Wikipedia
   icon: fab-wikipedia-w
-  link: https://www.wikipedia.org
+  link: https://www.wikipedia.org/w/index.php?search=
 
 - name: Yandex
   icon: fab-yandex
-  link: https://www.yandex.com
+  link: https://yandex.com/search/?text=
 
 - name: Steam
   icon: fab-steam
-  link: https://www.steam.com
+  link: https://store.steampowered.com/search/?term=
 
 - name: Github
   icon: fab-github
-  link: https://www.github.com
+  link: https://github.com/search?q=
 
 - name: Docker
   icon: fab-docker
-  link: https://www.dockerhub.com
+  link: https://hub.docker.com/search?q=
 
-- name: Pixiv
-  icon: fab-pixiv
-  link: https://www.pixiv.net
+- name: Youtube
+  icon: fab-youtube
+  link: https://youtube.com/results?search_query=
   
   

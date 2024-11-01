@@ -1,6 +1,6 @@
 theme: "hugo-theme-item"
 languageCode: "zh-CN"
-baseurl: "https://fordes123.github.io/hugo-theme-item/"
+baseurl: "https://item-hugo.fordes.dev/"
 title: "ITEM.ink"
 
 author: "fordes123"

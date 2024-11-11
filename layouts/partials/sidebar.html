@@ -4,7 +4,7 @@
     <aside class="bg-base-100 min-h-screen w-64">
         <div data-sveltekit-preload-data=""
              class="bg-base-100 sticky top-0 z-20 hidden items-center gap-2 bg-opacity-90 px-4 py-2 backdrop-blur lg:flex ">
-            <a href="/" aria-current="page" aria-label="Homepage" class="flex-0 btn btn-ghost px-2">
+            <a href="{{ .Site.BaseURL | relURL }}" aria-current="page" aria-label="Homepage" class="flex-0 btn btn-ghost px-2">
                 <!--@formatter:off-->
                 {{ partial "utils/icon" (dict "name" "images/favicon.png" "class" "h-6 w-6") }}
                 <!--@formatter:on-->
@@ -15,34 +15,44 @@
 
         <ul class="menu menu-custom menu-md px-4 py-0 !select-none">
             {{ range $index, $item := .Site.Data.navigate }}
-                <li>
-                    {{ if $item.children }}
-                        <details>
-                            <summary class="group">
+            <li>
+                {{ if $item.children }}
+                <details>
+                    <summary class="group">
                                 <span>
                                     <!--@formatter:off-->
                                     {{ partial "utils/icon" (dict "name" $item.icon "class" "w-5 h-5") }}
                                     <!--@formatter:on-->
                                 </span>
-                                {{ .name }}
-                            </summary>
-                            <ul>
-                                {{ range $child := $item.children }}
-                                    <li><a class="group" href="#{{ $child.name | urlize }}">{{ $child.name }}</a></li>
-                                {{ end }}
-                            </ul>
-                        </details>
-                    {{ else }}
-                        <a class="group" href="#{{ $item.name | urlize }}">
-                            <span>
-                                <!--@formatter:off-->
-                                {{ partial "utils/icon" (dict "name" $item.icon "class" "h-5 w-5") }}
-                                <!--@formatter:on-->
-                            </span>
-                            {{ $item.name }}
-                        </a>
+                        {{ .name }}
+                    </summary>
+                    <ul>
+                        {{ range $child := $item.children }}
+                        <li>
+                            {{- if $.IsHome -}}
+                            <a class="group" href="#{{ $child.name | urlize }}">{{ $child.name }}</a>
+                            {{- else -}}
+                            <a class="group" onclick="handleToHome('{{ $child.name | urlize }}')">{{ $child.name }}</a>
+                            {{- end -}}
+                        </li>
+                        {{ end }}
+                    </ul>
+                </details>
+                {{ else }}
+                {{- if $.IsHome -}}
+                <a class="group" href="#{{ $item.name | urlize }}">
+                    {{- else -}}
+                    <a class="group" onclick="handleToHome('{{ $item.name | urlize }}')">
+                        {{- end -}}
+                        <span>
+                            <!--@formatter:off-->
+                            {{ partial "utils/icon" (dict "name" $item.icon "class" "h-5 w-5") }}
+                            <!--@formatter:on-->
+                        </span>
+                        {{ $item.name }}
+                    </a>
                     {{ end }}
-                </li>
+            </li>
             {{ end }}
             <li></li>
             <li>

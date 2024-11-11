@@ -11,6 +11,7 @@ document.addEventListener("DOMContentLoaded", () => {
         hitokoto(el.getAttribute('data-category'), el));
 
     initScrolltop();
+    afterToHome();
 });
 
 
@@ -123,6 +124,28 @@ function initScrolltop() {
             } else {
                 scrolltop.classList.remove("hidden");
             }
+        }
+    }
+}
+
+/**
+ * 点击事件，记录滚动目标并回首页
+ */
+function handleToHome(target) {
+    sessionStorage.setItem("handleToHome_target", target);
+    window.location.replace('/')
+}
+
+/**
+ * 根据记录的滚动目标，滚动到指定位置
+ */
+function afterToHome() {
+    const target = sessionStorage.getItem("handleToHome_target");
+    if (target) {
+        sessionStorage.removeItem("handleToHome_target");
+        const element = document.getElementById(target);
+        if (element) {
+            element.scrollIntoView({ behavior: 'smooth', block: 'center' });
         }
     }
 }

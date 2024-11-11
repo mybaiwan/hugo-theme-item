@@ -1,6 +1,6 @@
 <div class="grid mt-4 grid-cols-1 gap-6 !select-none">
     <div class="card w-full p-5 bg-base-100 shadow-sm col-span-1 ">
-        <ul class="flex flex-nowrap overflow-x-scroll no-scrollbar menu menu-horizontal mb-4 px-0 ">
+        <ul id="search-bar" class="flex flex-nowrap overflow-x-scroll scroll-smooth no-scrollbar menu menu-horizontal mb-4 px-0 ">
             {{ range $index, $item := .Site.Data.search }}
                 <li>
                     <label class="rounded-box mr-1 px-3 text-xs lg:mr-2 lg:px-4 lg:text-sm">

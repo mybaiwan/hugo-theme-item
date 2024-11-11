@@ -5,7 +5,7 @@ description: "A website navigation theme using Tailwind CSS."
 homepage:  "https://github.com/fordes123/hugo-theme-item"
 tags:
   - "Hugo"
-  - "Tailwind CSS",
+  - "Tailwind CSS"
   - "theme"
   - "navigation"
 min_version: "0.124.0"

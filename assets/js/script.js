@@ -3,7 +3,6 @@
     initNavBlock();
     initBtmBar();
     initSearch();
-
 })();
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -11,6 +10,7 @@ document.addEventListener("DOMContentLoaded", () => {
         hitokoto(el.getAttribute('data-category'), el));
 
     initScrolltop();
+    initSearchBarScroll();
     afterToHome();
 });
 
@@ -120,9 +120,9 @@ function initScrolltop() {
         window.onscroll = function () {
             let scrollPos = getScrollTop();
             if (scrollPos === 0) {
-                scrolltop.classList.add("hidden");
+                scrolltop.classList.add("invisible");
             } else {
-                scrolltop.classList.remove("hidden");
+                scrolltop.classList.remove("invisible");
             }
         }
     }
@@ -163,5 +163,17 @@ function initSearch() {
             const url = element.value.replace(/%s/g, input.value);
             window.open(url, "_blank");
         }
+    });
+}
+
+/**
+ * 搜索栏水平滚动
+ */
+function initSearchBarScroll() {
+    const searchBar = document.getElementById("search-bar");
+    if (!searchBar) return;
+    searchBar.addEventListener('wheel', (event) => {
+        event.preventDefault();
+        searchBar.scrollLeft += event.deltaY;
     });
 }

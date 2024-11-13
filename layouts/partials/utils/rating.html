@@ -1,0 +1,18 @@
+{{ $rat := .rating }}
+{{ $max := .max | default 5 }}
+{{ $min := .min | default 0 }}
+{{ $size := .size | default "sm" }}
+{{ $class := .class | default "bg-orange-400" }}
+
+{{ $floor := math.Floor $rat }}
+
+<div class="rating rating-{{ $size }} rating-half">
+    {{ range seq 1 5 }}
+        {{ if eq (int .) (int $floor) }}
+        <input type="radio" class="mask mask-star-2 mask-half-1 {{ $class }}" checked="checked" />
+        {{ else }}    
+        <input type="radio" class="mask mask-star-2 mask-half-1 {{ $class }}" />
+        {{ end }}
+        <input type="radio" class="mask mask-star-2 mask-half-2 {{ $class }}" />
+    {{ end }}
+</div>

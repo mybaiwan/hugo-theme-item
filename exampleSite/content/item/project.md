@@ -9,36 +9,34 @@ categories: ["Frontend"]
 description: 网址导航仪表盘主题 ITEM 的 Hugo 版本，使用 Tailwind CSS 和 DaisyUI 打造
 
 katex: true
-
+internal: true
 ---
-
 # Markdown: Syntax
 
-*   [Overview](#overview)
-    *   [Philosophy](#philosophy)
-    *   [Inline HTML](#html)
-    *   [Automatic Escaping for Special Characters](#autoescape)
-*   [Block Elements](#block)
-    *   [Paragraphs and Line Breaks](#p)
-    *   [Headers](#header)
-    *   [Blockquotes](#blockquote)
-    *   [Lists](#list)
-    *   [Code Blocks](#precode)
-    *   [Horizontal Rules](#hr)
-*   [Span Elements](#span)
-    *   [Links](#link)
-    *   [Emphasis](#em)
-    *   [Code](#code)
-    *   [Images](#img)
-*   [Miscellaneous](#misc)
-    *   [Backslash Escapes](#backslash)
-    *   [Automatic Links](#autolink)
-
+* [Overview](#overview)
+  * [Philosophy](#philosophy)
+  * [Inline HTML](#html)
+  * [Automatic Escaping for Special Characters](#autoescape)
+* [Block Elements](#block)
+  * [Paragraphs and Line Breaks](#p)
+  * [Headers](#header)
+  * [Blockquotes](#blockquote)
+  * [Lists](#list)
+  * [Code Blocks](#precode)
+  * [Horizontal Rules](#hr)
+* [Span Elements](#span)
+  * [Links](#link)
+  * [Emphasis](#em)
+  * [Code](#code)
+  * [Images](#img)
+* [Miscellaneous](#misc)
+  * [Backslash Escapes](#backslash)
+  * [Automatic Links](#autolink)
 
 **Note:** This document is itself written using Markdown; you
-can [see the source for it by adding '.text' to the URL](/projects/markdown/syntax.text).
+can [see the source for it by adding &#39;.text&#39; to the URL](/projects/markdown/syntax.text).
 
-----
+---
 
 ## Overview
 
@@ -82,7 +80,6 @@ closing hashes don't even need to match the number of hashes
 used to open the header. (The number of opening hashes
 determines the header level.)
 
-
 ### Blockquotes
 
 Markdown uses email-style `>` characters for blockquoting. If you're
@@ -101,18 +98,19 @@ Markdown allows you to be lazy and only put the `>` before the first
 line of a hard-wrapped paragraph:
 
 > This is a blockquote with two paragraphs. Lorem ipsum dolor sit amet,
-consectetuer adipiscing elit. Aliquam hendrerit mi posuere lectus.
-Vestibulum enim wisi, viverra nec, fringilla in, laoreet vitae, risus.
+> consectetuer adipiscing elit. Aliquam hendrerit mi posuere lectus.
+> Vestibulum enim wisi, viverra nec, fringilla in, laoreet vitae, risus.
 
 > Donec sit amet nisl. Aliquam semper ipsum sit amet velit. Suspendisse
-id sem consectetuer libero luctus adipiscing.
+> id sem consectetuer libero luctus adipiscing.
 
 Blockquotes can be nested (i.e. a blockquote-in-a-blockquote) by
 adding additional levels of `>`:
 
 > This is the first level of quoting.
 >
-> > This is nested blockquote.
+>> This is nested blockquote.
+>>
 >
 > Back to the first level.
 
@@ -121,17 +119,16 @@ and code blocks:
 
 > ## This is a header.
 >
-> 1.   This is the first list item.
-> 2.   This is the second list item.
+> 1. This is the first list item.
+> 2. This is the second list item.
 >
 > Here's some example code:
 >
->     return shell_exec("echo $input | $markdown_script");
+> return shell_exec("echo $input | $markdown_script");
 
 Any decent text editor should make email-style quoting easy. For
 example, with BBEdit, you can make a selection and choose Increase
 Quote Level from the Text menu.
-
 
 ### Lists
 
@@ -140,27 +137,27 @@ Markdown supports ordered (numbered) and unordered (bulleted) lists.
 Unordered lists use asterisks, pluses, and hyphens -- interchangably
 -- as list markers:
 
-*   Red
-*   Green
-*   Blue
+* Red
+* Green
+* Blue
 
 is equivalent to:
 
-+   Red
-+   Green
-+   Blue
++ Red
++ Green
++ Blue
 
 and:
 
--   Red
--   Green
--   Blue
+- Red
+- Green
+- Blue
 
 Ordered lists use numbers followed by periods:
 
-1.  Bird
-2.  McHale
-3.  Parish
+1. Bird
+2. McHale
+3. Parish
 
 It's important to note that the actual numbers you use to mark the
 list have no effect on the HTML output Markdown produces. The HTML
@@ -168,15 +165,15 @@ Markdown produces from the above list is:
 
 If you instead wrote the list in Markdown like this:
 
-1.  Bird
-1.  McHale
-1.  Parish
+1. Bird
+2. McHale
+3. Parish
 
 or even:
 
 3. Bird
-1. McHale
-8. Parish
+4. McHale
+5. Parish
 
 you'd get the exact same HTML output. The point is, if you want to,
 you can use ordinal numbers in your ordered Markdown lists, so that
@@ -185,60 +182,59 @@ But if you want to be lazy, you don't have to.
 
 To make lists look nice, you can wrap items with hanging indents:
 
-*   Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
-    Aliquam hendrerit mi posuere lectus. Vestibulum enim wisi,
-    viverra nec, fringilla in, laoreet vitae, risus.
-*   Donec sit amet nisl. Aliquam semper ipsum sit amet velit.
-    Suspendisse id sem consectetuer libero luctus adipiscing.
+* Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
+  Aliquam hendrerit mi posuere lectus. Vestibulum enim wisi,
+  viverra nec, fringilla in, laoreet vitae, risus.
+* Donec sit amet nisl. Aliquam semper ipsum sit amet velit.
+  Suspendisse id sem consectetuer libero luctus adipiscing.
 
 But if you want to be lazy, you don't have to:
 
-*   Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
-    Aliquam hendrerit mi posuere lectus. Vestibulum enim wisi,
-    viverra nec, fringilla in, laoreet vitae, risus.
-*   Donec sit amet nisl. Aliquam semper ipsum sit amet velit.
-    Suspendisse id sem consectetuer libero luctus adipiscing.
+* Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
+  Aliquam hendrerit mi posuere lectus. Vestibulum enim wisi,
+  viverra nec, fringilla in, laoreet vitae, risus.
+* Donec sit amet nisl. Aliquam semper ipsum sit amet velit.
+  Suspendisse id sem consectetuer libero luctus adipiscing.
 
 List items may consist of multiple paragraphs. Each subsequent
 paragraph in a list item must be indented by either 4 spaces
 or one tab:
 
-1.  This is a list item with two paragraphs. Lorem ipsum dolor
-    sit amet, consectetuer adipiscing elit. Aliquam hendrerit
-    mi posuere lectus.
+1. This is a list item with two paragraphs. Lorem ipsum dolor
+   sit amet, consectetuer adipiscing elit. Aliquam hendrerit
+   mi posuere lectus.
 
-    Vestibulum enim wisi, viverra nec, fringilla in, laoreet
-    vitae, risus. Donec sit amet nisl. Aliquam semper ipsum
-    sit amet velit.
-
-2.  Suspendisse id sem consectetuer libero luctus adipiscing.
+   Vestibulum enim wisi, viverra nec, fringilla in, laoreet
+   vitae, risus. Donec sit amet nisl. Aliquam semper ipsum
+   sit amet velit.
+2. Suspendisse id sem consectetuer libero luctus adipiscing.
 
 It looks nice if you indent every line of the subsequent
 paragraphs, but here again, Markdown will allow you to be
 lazy:
 
-*   This is a list item with two paragraphs.
+* This is a list item with two paragraphs.
 
-    This is the second paragraph in the list item. You're
-    only required to indent the first line. Lorem ipsum dolor
-    sit amet, consectetuer adipiscing elit.
-
-*   Another item in the same list.
+  This is the second paragraph in the list item. You're
+  only required to indent the first line. Lorem ipsum dolor
+  sit amet, consectetuer adipiscing elit.
+* Another item in the same list.
 
 To put a blockquote within a list item, the blockquote's `>`
 delimiters need to be indented:
 
-*   A list item with a blockquote:
+* A list item with a blockquote:
 
-    > This is a blockquote
-    > inside a list item.
+  > This is a blockquote
+  > inside a list item.
+  >
 
 To put a code block within a list item, the code block needs
 to be indented *twice* -- 8 spaces or two tabs:
 
-*   A list item with a code block:
+* A list item with a code block:
 
-        <code goes here>
+  `<code goes here>`
 
 ### Code Blocks
 
@@ -269,9 +265,9 @@ easy to include example HTML source code using Markdown -- just paste
 it and indent it, and Markdown will handle the hassle of encoding the
 ampersands and angle brackets. For example, this:
 
-    <div class="footer">
+    `<div class="footer">`
         &copy; 2004 Foo Corporation
-    </div>
+    `</div>`
 
 Regular Markdown syntax is not processed within code blocks. E.g.,
 asterisks are just literal asterisks within a code block. This means

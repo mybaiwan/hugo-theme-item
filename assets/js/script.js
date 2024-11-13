@@ -120,9 +120,9 @@ function initScrolltop() {
         window.onscroll = function () {
             let scrollPos = getScrollTop();
             if (scrollPos === 0) {
-                scrolltop.classList.add("hidden");
+                scrolltop.classList.add("invisible");
             } else {
-                scrolltop.classList.remove("hidden");
+                scrolltop.classList.remove("invisible");
             }
         }
     }

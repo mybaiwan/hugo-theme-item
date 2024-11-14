@@ -1,0 +1,34 @@
+# --- 此处定义所有菜单 ---
+# 菜单使用 category 中的键名(唯一标识)，支持多级菜单
+# 一级、二级菜单用于侧边栏，category 用于内容块
+
+- name: Media
+  children:
+
+    - name: Video
+      category:
+        - Stream
+        - Short
+        - Live
+
+    - name: Music&Podcast
+      category:
+        - Music
+        - Podcast
+
+    - name: Game
+      category:
+        - OnlineGame
+        - GameCommunity
+
+- name: Software
+  category:
+    - WindowsSoftware
+    - MacSoftware
+    - AndroidSoftware
+
+- name: OpenSourceProjects
+  category:
+    - Frontend
+    - Backend
+    - DevOps

@@ -56,7 +56,7 @@
             {{ range $index, $item := .Site.Data.box }}
                 <div class="flex flex-col items-center justify-center gap-y-2">
                     <a class="btn btn-circle btn-outline btn-lg border-0 shadow-sm"
-                       style="background: {{ $item.background | safeCSS }}" href="{{ $item.link }}"
+                       style="background: {{ $item.background | safeCSS }}" href="{{ $item.url | safeURL }}"
                        target="_blank" title="{{ $item.name }}">
                         <!--@formatter:off-->
                         {{ partial "utils/icon" (dict "name" $item.icon "class" "inline-block text-white h-8 w-8 stroke-current") }}

@@ -2,6 +2,7 @@
 author: Dirk Olbrich
 title: Lorem Markdownum
 date: 2021-01-07
+internal: true
 ---
 
 ## Amens nitentior vires

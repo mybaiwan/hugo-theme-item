@@ -46,3 +46,6 @@ markup:
   goldmark:
     renderer:
       unsafe: true
+
+disableKinds:
+  - section

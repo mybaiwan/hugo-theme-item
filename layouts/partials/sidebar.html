@@ -14,25 +14,27 @@
         <div class="h-4"></div>
 
         <ul class="menu menu-custom menu-md px-4 py-0 !select-none">
-            {{ range $index, $item := .Site.Data.navigate }}
+            {{ range $index, $item := .Site.Data.menu }}
             <li>
+                {{ $instance := index site.Data.category $item.name }}
                 {{ if $item.children }}
                 <details>
                     <summary class="group">
                                 <span>
                                     <!--@formatter:off-->
-                                    {{ partial "utils/icon" (dict "name" $item.icon "class" "w-5 h-5") }}
+                                    {{ partial "utils/icon" (dict "name" ($instance.icon | default "lucide-hash") "class" "w-5 h-5") }}
                                     <!--@formatter:on-->
                                 </span>
-                        {{ .name }}
+                        {{ $instance.display | default $item.name }}
                     </summary>
                     <ul>
                         {{ range $child := $item.children }}
+                        {{ $childInstance := index site.Data.category $child.name }}
                         <li>
                             {{- if $.IsHome -}}
-                            <a class="group" href="#{{ $child.name | urlize }}">{{ $child.name }}</a>
+                            <a class="group" href="#{{ $child.name | urlize }}">{{ $childInstance.display | default $child.name }}</a>
                             {{- else -}}
-                            <a class="group" onclick="handleToHome('{{ $child.name | urlize }}')">{{ $child.name }}</a>
+                            <a class="group" onclick="handleToHome('{{ $child.name | urlize }}')">{{ $childInstance.display | default $child.name }}</a>
                             {{- end -}}
                         </li>
                         {{ end }}
@@ -46,10 +48,10 @@
                         {{- end -}}
                         <span>
                             <!--@formatter:off-->
-                            {{ partial "utils/icon" (dict "name" $item.icon "class" "h-5 w-5") }}
+                            {{ partial "utils/icon" (dict "name" ($instance.icon | default "lucide-hash") "class" "h-5 w-5") }}
                             <!--@formatter:on-->
                         </span>
-                        {{ $item.name }}
+                        {{ $instance.display | default $item.name }}
                     </a>
                     {{ end }}
             </li>

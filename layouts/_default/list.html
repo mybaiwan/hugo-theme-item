@@ -1,9 +1,51 @@
 {{ define "main" }}
-{{ range .Pages }}
-<article
-    class="justify-self-center mx-auto mb-16 px-6 sm:px-4 md:px-0 prose dark:prose-invert prose-slate lg:prose-lg hover:prose-a:text-sky-500">
-    <h1><a href="{{ .Permalink }}">{{ .Title }}</a></h1>
-    {{ .Content }}
+
+{{ $type := dict 
+    "categories" (dict "source" site.Data.category "icon" "lucide-folder")
+    "tags" (dict "source" site.Data.tags "icon" "lucide-tag")
+}}
+
+<article class="flex-1 overflow-visible p-4 lg:p-6">
+    <div class="card items-center justify-center xl:flex-row bg-base-100">
+        <div class="card-body items-center w-full max-w-7xl p-8 pt-12">
+            <div class="card-title items-center mb-8 text-4xl">
+                <span>
+                    {{ $_type := index $type .Type }}
+                    {{ $item := index $_type.source .Name }}
+                    <!--@formatter:off-->
+                    {{ partial "utils/icon" (dict "name" ($item.icon | default $_type.icon) "class" "h-15 w-15 stroke-current")}}
+                    <!--@formatter:on-->
+                </span>
+                <h3>{{ $item.display | default .Title }}</h3>
+            </div>
+
+            {{ if eq .Kind "taxonomy" }}
+            <div class="mb-6 flex items-center space-x-2 justify-center">
+                <div class="p-4 overflow-scroll flex flex-wrap gap-3">
+                    {{ range .Pages }}
+                    {{ $item := index $_type.source .Name }}
+                    <a class="btn hover:opacity-80 rounded-full " href="{{ .Permalink }}" style="background: {{ $item.background | safeCSS }}">
+                        {{ if $item }}
+                        <!--@formatter:off-->
+                        {{ partial "utils/icon" (dict "name" ($item.icon | default $_type.icon) "class" "inline-block h-4 w-4 md:h-6 md:w-6") }}
+                        <!--@formatter:on-->
+                        {{ end }}
+                        {{ .Title }}<div class="badge">{{ len .Pages }}</div>
+                    </a>
+                    {{ end }}
+                </div>
+            </div>
+
+
+            {{ else if eq .Kind "term" }}
+            <div
+                class="card-body w-full h-60 p-4 overflow-scroll grid grid-cols-2 gap-4 md:grid-cols-3 xl:grid-cols-4 xl:gap-x-6 2xl:grid-cols-5 ">
+                {{ partial "component/nav-block-item" (dict "name" .Name "basis" .Type ) }}
+            </div>
+            {{ end }}
+
+        </div>
+    </div>
 </article>
-{{ end }}
+{{- partial "component/scrolltop" -}}
 {{ end }}

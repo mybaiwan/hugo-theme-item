@@ -7,7 +7,7 @@
 {{ end }}
 
 {{ if strings.HasPrefix $name "<svg" }}
-    <i class="{{ $class }}">{{ $name | safeHTML }}</i>
+    <i class="flex items-center justify-center {{ $class }}">{{ $name | safeHTML }}</i>
 {{ else }}
     {{ if not (strings.Contains $name ".") }}
         {{ $parts := split $name "-" }}
@@ -19,7 +19,7 @@
     {{ else }}
         {{ with resources.Get $name }}
             {{ if eq .MediaType.SubType "svg" }}
-                <i class="{{ $class }}">{{ .Content | safeHTML }}</i>
+                <i class="flex items-center justify-center {{ $class }}">{{ .Content | safeHTML }}</i>
             {{ else }}
                 <img src="{{ .RelPermalink }}" class="{{ $class }}" />
             {{ end }}

@@ -1,21 +1,23 @@
 <!DOCTYPE html>
 <html lang='{{ .Site.LanguageCode }}' class="scroll-smooth">
-{{ partial "head" . }}
+{{ if (eq .Kind "section") }}
+    <meta http-equiv="refresh" content="0; url={{ "/" | relLangURL }}">
+{{ else }}
+    {{ partial "head" . }}
+    <body>
+        {{- partial "dev/dev-tools" . -}}
 
-<body>
-{{- partial "dev/dev-tools" . -}}
+        <div class="drawer lg:drawer-open">
+            <input id="drawer" type="checkbox" class="drawer-toggle">
+            <div class="drawer-content flex flex-col bg-gray-100/50">
+                {{- partial "header" . -}}
+                {{- block "main" . }}{{- end }}
+                {{- partial "footer" . -}}
+            </div>
+            {{- partial "sidebar" . -}}
+        </div>
 
-<div class="drawer lg:drawer-open">
-    <input id="drawer" type="checkbox" class="drawer-toggle">
-    <div class="drawer-content flex flex-col bg-gray-100/50">
-        {{- partial "header" . -}}
-        {{- block "main" . }}{{- end }}
-        {{- partial "footer" . -}}
-    </div>
-    {{- partial "sidebar" . -}}
-</div>
-
-{{- partial "utils/scripts" . -}}
-</body>
-
+        {{- partial "utils/scripts" . -}}
+    </body>
+{{ end }}
 </html>

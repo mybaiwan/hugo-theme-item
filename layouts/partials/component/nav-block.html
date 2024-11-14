@@ -1,22 +1,25 @@
 {{ $item := .item }}
+{{ $instance := index site.Data.category $item.name }}
+{{ if $instance }}
 <div class="nav-block grid mt-4 grid-cols-1 gap-4 !select-none" id="{{ $item.name | urlize }}">
     <div class="card w-full p-2 sm:p-4 bg-base-100 shadow-sm col-span-1 ">
         <div class="flex items-center justify-between card-title text-gray-700">
             <button class="btn btn-ghost font-medium no-animation">
                 <!--@formatter:off-->
-                {{ partial "utils/icon" (dict "name" $item.icon "class" "inline-block h-4 w-4 md:h-6 md:w-6") }}
+                {{ partial "utils/icon" (dict "name" $instance.icon "class" "h-4 w-4 md:h-6 md:w-6") }}
                 <!--@formatter:on-->
-                {{ $item.name }}</button>
+                {{ $instance.display | default $item.name }}</button>
             {{ if $item.category }}
                 <div class="join mr-4 border rounded-btn bg-opacity-90 backdrop-blur">
-                    {{ range $i, $single := $item.category }}
-                        <label class="join-item btn btn-sm btn-ghost font-medium px-2" title="{{ $single.name }}">
-                            <input type="radio" name="block-item-{{ $item.name }}" data-id="{{ $single.name }}"
+                    {{ range $category := $item.category }}
+                        {{ $_instance := index site.Data.category $category }}
+                        <label class="join-item btn btn-sm btn-ghost font-medium px-2" title="{{ $_instance.display | default $category }}">
+                            <input type="radio" name="block-item-{{ $item.name | urlize }}" data-id="{{ $category | urlize }}"
                                    class="hidden">
                             <!--@formatter:off-->
-                            {{ partial "utils/icon" (dict "name" $single.icon "class" "inline-block h-4 w-4") }}
+                            {{ partial "utils/icon" (dict "name" $_instance.icon "class" "inline-block h-4 w-4") }}
                             <!--@formatter:on-->
-                            <span class="hidden md:block">{{ $single.name }}</span>
+                            <span class="hidden md:block">{{ $_instance.display | default $category }}</span>
                         </label>
                     {{ end }}
                 </div>
@@ -24,8 +27,8 @@
         </div>
         <div class="card-body w-full h-60 p-4 overflow-scroll grid grid-cols-2 gap-4 md:grid-cols-3 xl:grid-cols-4 xl:gap-x-6 2xl:grid-cols-5 ">
             {{ if $item.category }}
-                {{ range $i, $single := $item.category }}
-                    {{ partial "component/nav-block-item" (dict "name" $single.name) }}
+                {{ range $category := $item.category }}
+                    {{ partial "component/nav-block-item" (dict "name" $category) }}
                 {{ end }}
             {{ else }}
                 {{ partial "component/nav-block-item" (dict "name" $item.name) }}
@@ -33,3 +36,4 @@
         </div>
     </div>
 </div>
+{{ end }}

@@ -1,0 +1,29 @@
+---
+
+Amazon:
+  icon: lucide-store
+  background: "linear-gradient(45deg, #e6eeff, #b3c6ff)"
+
+Apple:
+  icon: lucide-apple
+  background: "linear-gradient(45deg, #ffe6e6, #ffb3b3)"
+
+直播:
+  icon: lucide-webcam
+  background: "linear-gradient(45deg, #e6ffe6, #b3ffb3)"
+
+订阅制:
+  icon: lucide-podcast
+  background: "linear-gradient(45deg, #fff2e6, #ffd9b3)"
+
+游戏:
+  icon: lucide-gamepad-2
+  background: "linear-gradient(45deg, #f2e6ff, #d9b3ff)"
+
+UGC:
+  icon: lucide-user
+  background: "linear-gradient(45deg, #e5f2ff, #a3c6ff)"
+
+综合:
+  background: "linear-gradient(45deg, #a5f2ff, #b3cfff)"
+

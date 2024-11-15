@@ -1,4 +1,8 @@
-# The Tools module configuration
+# --- 此处定义所有工具 ---
+# name: 工具名称
+# icon: 工具图标，支持svg代码、hugo-icons图标名、资源文件
+# url: 工具链接
+# background: 背景色，支持css颜色值，如 #fff, #000, red 等
 ---
 
 - name: News

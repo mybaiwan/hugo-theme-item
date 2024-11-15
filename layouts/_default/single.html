@@ -52,6 +52,9 @@
                     {{ end }}
                     {{ if .Params.tags }}
                         <li class="mx-2 my-2 inline-flex items-center justify-center">
+                            <!--@formatter:off-->
+                            {{ partial "utils/icon" (dict "name" "lucide-tag" "class" "h-5 w-5 stroke-current")}}
+                            <!--@formatter:on-->
                             <div class="ml-2 flex items-center">
                                 {{ range first 3 (.GetTerms "tags") }}
                                 {{ $tag := index site.Data.tags .Name }}

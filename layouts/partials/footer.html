@@ -22,8 +22,8 @@
             {{ end }}
 
             <p>© <time>{{ now.Format "2006" }}</time> {{ .Site.Params.SiteName | default "ITEM" }}.
-                {{ range .Site.Menus.footer }}
-                <a href="{{ .URL | relURL }}">{{ .Name }}. </a>
+                {{ range .Site.Params.footer }}
+                <a href="{{ .url | relURL }}">{{ .name }}. </a>
                 {{ end }}
             </p>
         </div>

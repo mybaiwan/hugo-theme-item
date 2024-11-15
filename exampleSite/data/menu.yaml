@@ -1,33 +1,45 @@
 # --- 此处定义所有菜单 ---
-# 菜单使用 category 中的键名(唯一标识)，支持多级菜单
-# 一级、二级菜单用于侧边栏，category 用于内容块
+# name: 菜单唯一标识，不能重复
+# icon: 菜单图标，支持svg代码、hugo-icons图标名、资源文件
+# display: 菜单显示名称，可以重复，为空将使用键名
+# children: 子菜单，！注意子菜单不能再拥有子菜单
+# category: 菜单下的分类，与 category.yaml 中的键名相对应 ！注意：当拥有children时，category将失效
+---
 
-- name: Media
+- name: "Media"
+  icon: fas-play
+  display: Media
   children:
 
-    - name: Video
+    - name: "Video"
+      icon: fas-clapperboard
       category:
         - Stream
         - Short
         - Live
 
-    - name: Music&Podcast
+    - name: "Music&Podcast"
+      icon: <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-guitar"><path d="m11.9 12.1 4.514-4.514"/><path d="M20.1 2.3a1 1 0 0 0-1.4 0l-1.114 1.114A2 2 0 0 0 17 4.828v1.344a2 2 0 0 1-.586 1.414A2 2 0 0 1 17.828 7h1.344a2 2 0 0 0 1.414-.586L21.7 5.3a1 1 0 0 0 0-1.4z"/><path d="m6 16 2 2"/><path d="M8.2 9.9C8.7 8.8 9.8 8 11 8c2.8 0 5 2.2 5 5 0 1.2-.8 2.3-1.9 2.8l-.9.4A2 2 0 0 0 12 18a4 4 0 0 1-4 4c-3.3 0-6-2.7-6-6a4 4 0 0 1 4-4 2 2 0 0 0 1.8-1.2z"/><circle cx="11.5" cy="12.5" r=".5" fill="currentColor"/></svg>
       category:
         - Music
         - Podcast
+        - Radio
 
-    - name: Game
-      category:
-        - OnlineGame
-        - GameCommunity
+- name: "Game"
+  icon: lucide-gamepad
+  category:
+    - OnlineGame
+    - GameCommunity
 
-- name: Software
+- name: "Software"
+  icon: lucide-plug
   category:
     - WindowsSoftware
     - MacSoftware
     - AndroidSoftware
 
-- name: OpenSourceProjects
+- name: "OpenSourceProjects"
+  icon: lucide-git-branch
   category:
     - Frontend
     - Backend

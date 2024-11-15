@@ -5,13 +5,13 @@
 
         {{- partial "component/search" . -}}
 
-        {{ range $item := .Site.Data.menu }}
-            {{ if $item.children }}
-                {{ range $child := $item.children }}
-                    {{- partial "component/nav-block" (dict "item" $child "basis" "categories") -}}
+        {{ range $menu := .Site.Data.menu }}
+            {{ if $menu.children }}
+                {{ range $child := $menu.children }}
+                    {{- partial "component/nav-block" (dict "menu" $child) -}}
                 {{ end }}
             {{ else }}
-                {{- partial "component/nav-block" (dict "item" $item "basis" "categories") -}}
+                {{- partial "component/nav-block" (dict "menu" $menu) -}}
             {{ end }}
         {{ end }}
     </main>

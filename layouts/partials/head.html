@@ -1,15 +1,24 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>{{ block "title" . }}
-        {{- .Title }} - {{ .Site.Title -}}
-        {{ end }}</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>{{with.Title}}{{.}}{{end}}{{ if not .IsHome }} | {{.Site.Title}}{{end}}</title>
+
+    <meta property="og:site_name" content="{{.Site.Params.siteName}}" />
+    <meta property="og:title" content="{{with.Title}}{{.}} | {{end}}{{.Site.Title}}"/>
+    <meta itemprop="name" content="{{with.Title}}{{.}} | {{end}}{{.Site.Title}}" />
+    <meta name="application-name" content="{{with.Title}}{{.}} | {{end}}{{.Site.Title}}" />
+
     {{- if .Description }}
-    <meta name="description" content="{{ .Description }}" />
+    <meta name="description" content="{{ if .Description }}{{.Description}}{{ else }}{{.Site.Params.siteDesc}}{{end}}" />
+    <meta itemprop="description" content="{{ if .Description }} {{.Description}} {{ else }}{{.Site.Params.siteDesc}}{{end}}"/>
+    <meta property="og:description" content="{{ if .Description }} {{.Description}} {{ else }}{{.Site.Params.siteDesc}}{{ end }}" />
     {{ end -}}
+
     {{- if .Keywords }}
     <meta name="keywords" content="{{ delimit .Keywords " ," }}" />
     {{ end -}}
+
     {{- if .Params.Author }}
     <meta name="author" content="{{ .Params.Author}}" />
     {{ end -}}
@@ -18,7 +27,7 @@
     {{ partialCached "utils/css" . }}
 
     <script>
-        var state = localStorage.getItem("data-theme") || "{{ .Site.Params.themePreset }}";
+        let state = localStorage.getItem("data-theme") || "{{ .Site.Params.themePreset }}";
         if (state === null || state === "default") {
             localStorage.setItem("data-theme", "default");
             state = window.matchMedia('(prefers-color-scheme: dark)').matches ? "dark" : "light";

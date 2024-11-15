@@ -5,39 +5,25 @@
                 <!--@formatter:off-->
                 {{ partial "utils/icon" (dict "name" "lucide-flag" "class" "inline-block h-4 w-4 stroke-current md:h-6 md:w-6") }}
                 <!--@formatter:on-->
-                Hot
+                Recommend
             </button>
         </div>
         <div class="card-body w-full h-56 p-4 overflow-scroll">
             <div class="overflow-x-hidden overflow-y-scroll">
-                <table class="table w-full">
+                <table class="table">
                     <tbody>
-                    <tr>
-                        <td class="flex">
-                            <div class="badge badge-neutral rounded-full mr-2">1</div>
-                            <a class="truncate animate-pulse skeleton w-36"></a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="flex">
-                            <div class="badge badge-primary rounded-full mr-2">2</div>
-                            <a class="truncate animate-pulse skeleton w-36"></a></td>
-                    </tr>
-                    <tr>
-                        <td class="flex">
-                            <div class="badge badge-secondary rounded-full mr-2">3</div>
-                            <a class="truncate animate-pulse skeleton w-56"></a></td>
-                    </tr>
-                    <tr>
-                        <td class="flex">
-                            <div class="badge badge-accent rounded-full mr-2">4</div>
-                            <a class="truncate animate-pulse skeleton w-56"></a></td>
-                    </tr>
-                    <tr>
-                        <td class="flex">
-                            <div class="badge badge-ghost rounded-full mr-2">5</div>
-                            <a class="truncate animate-pulse skeleton w-56"></a></td>
-                    </tr>
+                        {{ if .Site.Data.recommend }}
+                        {{ $styles := slice "neutral" "primary" "secondary" "accent" "ghost" }}
+                        {{ range $index, $item := .Site.Data.recommend }}
+                        {{ $style := index $styles (mod $index 5) }}
+                        <tr>
+                            <td class="flex" title="{{ $item.name }}">
+                                <div class="badge badge-{{ $style }} rounded-full mr-2">{{ add $index 1 }}</div>
+                                <a class="truncate" href="{{ $item.url | safeURL }}" target="_blank">{{ $item.name }}</a>
+                            </td>
+                        </tr>
+                        {{ end }}
+                        {{ end }}
                     </tbody>
                 </table>
             </div>
@@ -52,18 +38,19 @@
                 Tools
             </button>
         </div>
-        <div class="card-body w-full h-56 p-4 overflow-scroll grid grid-cols-3 gap-4 sm:grid-cols-4 lg:grid-cols-4 lg:gap-4 xl:grid-cols-5 xl:gap-x-8 2xl:grid-cols-6">
+        <div
+            class="card-body w-full h-56 p-4 overflow-scroll grid grid-cols-3 gap-4 sm:grid-cols-4 lg:grid-cols-4 lg:gap-4 xl:grid-cols-5 xl:gap-x-8 2xl:grid-cols-6">
             {{ range $index, $item := .Site.Data.box }}
-                <div class="flex flex-col items-center justify-center gap-y-2">
-                    <a class="btn btn-circle btn-outline btn-lg border-0 shadow-sm"
-                       style="background: {{ $item.background | safeCSS }}" href="{{ $item.url | safeURL }}"
-                       target="_blank" title="{{ $item.name }}">
-                        <!--@formatter:off-->
-                        {{ partial "utils/icon" (dict "name" $item.icon "class" "inline-block text-white h-8 w-8 stroke-current") }}
-                        <!--@formatter:on-->
-                    </a>
-                    <label class="truncate w-full text-center lg:text-sm">{{ $item.name }}</label>
-                </div>
+            <div class="flex flex-col items-center justify-center gap-y-2">
+                <a class="btn btn-circle btn-outline btn-lg border-0 shadow-sm"
+                    style="background: {{ $item.background | safeCSS }}" href="{{ $item.url | safeURL }}"
+                    target="_blank" title="{{ $item.name }}">
+                    <!--@formatter:off-->
+                    {{ partial "utils/icon" (dict "name" $item.icon "class" "inline-block text-white h-8 w-8 stroke-current") }}
+                    <!--@formatter:on-->
+                </a>
+                <label class="truncate w-full text-center lg:text-sm">{{ $item.name }}</label>
+            </div>
             {{ end }}
         </div>
     </div>

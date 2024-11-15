@@ -1,4 +1,7 @@
-
+# --- 此处定义所有搜索引擎 ---
+# name: 搜索引擎名称
+# icon: 搜索引擎图标，支持svg代码、hugo-icons图标名、资源文件
+# url: 搜索引擎链接，%s 为搜索关键词占位符
 ---
 - name: Google
   icon: fab-google

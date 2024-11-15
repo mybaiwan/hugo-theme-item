@@ -25,15 +25,15 @@ params:
     category:
       - "i"
       - "k"
-menu:
-  header:
-    - name: Articles
-      url: "/articles/"
-      weight: 10
 
-    - name: About
-      url: "/about/"
-      weight: 20
+  sidebar:
+    - name: 示例
+      icon: lucide-book
+      url: "https://item-hugo.fordes.dev/"
+
+    - name: Github
+      icon: lucide-github
+      url: "https://github.com/fordes123/hugo-theme-item"
 
   footer:
     - name: Github
@@ -47,5 +47,6 @@ markup:
     renderer:
       unsafe: true
 
+# 本主题不支持 section，它们会被重定向到首页，因此最好在此处禁用
 disableKinds:
   - section

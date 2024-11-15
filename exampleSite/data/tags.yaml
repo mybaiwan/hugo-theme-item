@@ -1,3 +1,7 @@
+# --- 此处定义所有标签 ---
+# 键名: 标签唯一标识，不能重复
+# icon: 标签图标，支持svg代码、hugo-icons图标名、资源文件
+# background: 背景色，支持css颜色值，如 #fff, #000, red 等
 ---
 
 Amazon:

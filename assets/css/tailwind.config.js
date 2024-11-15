@@ -19,4 +19,11 @@ module.exports = {
         darkTheme: "halloween",
         logs: false
     },
+    safelist: [
+        'badge-neutral',
+        'badge-primary',
+        'badge-secondary', 
+        'badge-accent',
+        'badge-ghost'
+      ]
 }

@@ -747,7 +747,9 @@
          */
         onKeyDown: function (e) {
             // Prevent native page scrolling whilst tapping on mobile.
-            e.preventDefault();
+            if (IS_MOBILE && this.playing) {
+                e.preventDefault();
+            }
 
             if (e.target != this.detailsButton) {
                 if (
@@ -755,6 +757,7 @@
                     (Runner.keycodes.JUMP[e.keyCode] ||
                         e.type == Runner.events.TOUCHSTART)
                 ) {
+                    e.preventDefault();
                     if (!this.playing) {
                         this.loadSounds();
                         this.playing = true;

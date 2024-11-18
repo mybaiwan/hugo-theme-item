@@ -21,7 +21,7 @@
             {{ if eq .MediaType.SubType "svg" }}
                 <i class="flex items-center justify-center {{ $class }}">{{ .Content | safeHTML }}</i>
             {{ else }}
-                <img src="{{ .RelPermalink }}" class="{{ $class }}" />
+                <img src="{{ .RelPermalink }}" class="{{ $class }}" alt=""/>
             {{ end }}
         {{ end }}
     {{ end }}

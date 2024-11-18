@@ -1,14 +1,14 @@
 {{ $menu := .menu }}
 <div class="nav-block grid mt-4 grid-cols-1 gap-4 !select-none" id="{{ $menu.name | urlize }}">
     <div class="card w-full p-2 sm:p-4 bg-base-100 shadow-sm col-span-1 ">
-        <div class="flex items-center justify-between card-title text-gray-700">
-            <button class="btn btn-ghost font-medium no-animation">
+        <div class="flex items-center justify-between card-title">
+            <button class="btn btn-ghost font-medium">
                 <!--@formatter:off-->
                 {{ partial "utils/icon" (dict "name" $menu.icon "class" "h-4 w-4 md:h-6 md:w-6") }}
                 <!--@formatter:on-->
                 {{ $menu.display | default $menu.name }}</button>
             {{ if $menu.category }}
-                <div class="join mr-4 border rounded-btn bg-opacity-90 backdrop-blur">
+                <div class="join mr-4 border dark:border-neutral rounded-btn bg-opacity-90 backdrop-blur ">
                     {{ range $category := $menu.category }}
                         {{ $_category := index site.Data.category $category }}
                         <label class="join-item btn btn-sm btn-ghost font-medium px-2" title="{{ $_category.display | default $category }}">

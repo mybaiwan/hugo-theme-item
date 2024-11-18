@@ -3,7 +3,7 @@
 
 {{ $pages := where site.RegularPages (printf ".Params.%s" $basis) "intersect" (slice $name) }}
 {{ range $pages }}
-<div class="nav-item h-24 card border-2 border-base-content/5 card-compact transition-all duration-200 hover:shadow hover:-translate-y-1" data-id="{{ $name | urlize }}">
+<div class="nav-item h-24 card card-compact border-2 border-base-content/5 dark:border-neutral transition-all duration-200 hover:shadow hover:-translate-y-1" data-id="{{ $name | urlize }}">
     {{ $desc := or .Description .Summary }}
     {{ if and $desc (ne $desc "") }}
     <div class="nav-item-behind absolute card-body rounded-box p-4 inset-0 glass z-20">

@@ -24,7 +24,7 @@
                 <div class="p-4 overflow-scroll flex flex-wrap gap-3">
                     {{ range .Pages }}
                     {{ $item := index $_type.source .Name }}
-                    <a class="btn hover:opacity-80 rounded-full " href="{{ .Permalink }}" style="background: {{ $item.background | safeCSS }}">
+                    <a class="btn rounded-full hover:text-primary dark:bg-neutral dark:hover:bg-neutral/80  border-1 border-base-content/5 dark:border-neutral-content/5 transition-all duration-200 hover:shadow hover:-translate-y-1" href="{{ .Permalink }}" {{ if $item.background }}style="background: {{ $item.background | safeCSS }}"{{end}}>
                         {{ if $item }}
                         <!--@formatter:off-->
                         {{ partial "utils/icon" (dict "name" ($item.icon | default $_type.icon) "class" "inline-block h-4 w-4 md:h-6 md:w-6") }}

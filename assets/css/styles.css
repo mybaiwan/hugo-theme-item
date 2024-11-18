@@ -30,7 +30,7 @@ label:has(input[name^="block-item"]:checked) {
         @apply text-primary;
     }
 
-    @apply bg-base-300;
+    @apply dark:bg-neutral bg-base-300;
 
 }
 

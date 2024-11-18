@@ -1,15 +1,16 @@
 {{ $url := .url }}
 {{ $favicon := .favicon }}
 {{ $class := .class }}
+{{ $alt := .alt }}
 
 {{ if and $favicon (ne $favicon "") }}
-    <img src="{{ $favicon | safeHTML }}" class="{{ $class | safeHTML }}" loading="lazy"/>
+    <img src="{{ $favicon | safeHTML }}" class="{{ $class | safeHTML }}" loading="lazy" alt="{{ $alt | safeHTML }}"/>
 {{ else }}
     {{ $host := (urls.Parse $url).Host }}
     {{ if $host }}
-        <img src="https://favicon.im/{{ $host }}" class="{{ $class | safeHTML }}" loading="lazy"/>
+        <img src="https://favicon.im/{{ $host }}" class="{{ $class | safeHTML }}" loading="lazy" alt="{{ $alt | safeHTML }}"/>
     {{ else }}
         {{ $loadingGif := resources.Get "images/loading.gif" }}
-        <img src="{{ $loadingGif.RelPermalink }}" class="{{ $class | safeHTML }}" loading="lazy"/>
+        <img src="{{ $loadingGif.RelPermalink }}" class="{{ $class | safeHTML }}" loading="lazy" alt="{{ $alt | safeHTML }}"/>
     {{ end }}
 {{ end }}

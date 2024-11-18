@@ -1,5 +1,5 @@
 module.exports = {
-    darkMode: 'class',
+    darkMode: ['selector', '[data-theme="dark"]'],
     content: [
         "./themes/**/layouts/**/*.html",
         "./content/**/layouts/**/*.html",
@@ -9,6 +9,9 @@ module.exports = {
     theme: {
         extend: {},
     },
+    themes: [
+        "light", "dark"
+      ],
     plugins: [
         require('@tailwindcss/aspect-ratio'),
         require('@tailwindcss/typography'),
@@ -16,14 +19,14 @@ module.exports = {
     ],
     daisyui: {
         themes: true,
-        darkTheme: "halloween",
+        darkTheme: "dark",
         logs: false
     },
     safelist: [
         'badge-neutral',
         'badge-primary',
-        'badge-secondary', 
+        'badge-secondary',
         'badge-accent',
         'badge-ghost'
-      ]
+    ]
 }

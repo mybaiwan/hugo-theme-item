@@ -28,17 +28,13 @@
         </div>
 
         <div class="w-2/3 flex flex-col justify-center px-2">
-            {{ if (.Params.internal ) }}
-            <a href="{{ .Permalink }}" class="block">
-            {{ else }}
-            <a href="{{ .Params.link }}" class="block">
-                {{ end }}
+            <a href="{{ if (.Params.internal ) }}{{ .Permalink }}{{ else }}{{ .Params.link }}{{ end }}" class="block">
                 <h3 class="text-lg font-semibold truncate pb-1" title="{{ .Title }}">{{ .Title }}</h3>
                 {{ with .Params.tags }}
                 <div class="flex flex-nowrap overflow-hidden max-w-full pt-1">
                     {{ range first 3 . }}
                     {{ $tag := index site.Data.tags . }}
-                    <a class="badge badge-sm gap-1 mr-1 py-2.5 whitespace-nowrap" title="{{ . }}" href="/tags/{{ . }}">
+                    <a class="badge badge-sm gap-1 mr-1 py-2.5 whitespace-nowrap" title="{{ . }}" href="/tags/{{ . | urlize }}">
                         <!--@formatter:off-->
                         {{ partial "utils/icon" (dict "name" ($tag.icon | default "lucide-tag") "class" "inline-block h-3 w-3") }}
                         <!--@formatter:on-->

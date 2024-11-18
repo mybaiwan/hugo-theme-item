@@ -30,6 +30,12 @@ mv hugo /usr/local/bin/
 rm -rf hugo_extended_${HUGO_VERSION}_Linux-64bit.tar.gz
 hugo version
 
+# change to the project directory
+echo "Change project directory..."
+mkdir -p hugo-theme-item
+mv ./* hugo-theme-item/
+cd hugo-theme-item
+
 # install dependencies
 echo "Installing project dependencies..."
 npm install
@@ -41,3 +47,9 @@ npm run init
 # run the build command
 echo "Running the build command..."
 npm run build
+
+# update the baseurl
+echo "Update the baseurl..."
+if [ -n "$VERCEL_URL" ]; then
+    sed -i "s#baseurl:.*#baseurl: \"https://$VERCEL_URL/\"#" exampleSite/hugo.yaml
+fi

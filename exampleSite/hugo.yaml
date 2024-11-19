@@ -26,6 +26,9 @@ params:
       - "i"
       - "k"
 
+  # 首页是否展示标签，如为false则使用描述(description)或正文摘要替代
+  useHomePageTag: true
+
   sidebar:
     - name: 示例
       icon: lucide-book

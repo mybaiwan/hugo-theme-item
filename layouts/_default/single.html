@@ -72,12 +72,12 @@
                 </ul>
 
             </div>
-            <div class="prose prose-sm md:prose-base w-full max-w-4xl flex-grow pt-10">
+            <div class="prose md:prose-base w-full max-w-4xl flex-grow pt-10">
                 {{ if .Content }}
                 {{ .Content | safeHTML }}
                 {{ else }}
                     {{ if .Params.description }}
-                        <p class="text-xl text-base-content flex items-start">
+                        <p class="text-xl leading-loose text-base-content flex items-start">
                             {{ partial "utils/icon" (dict "name" "/images/quote.png" "class" "!my-0 h-12 w-12")}}
                             {{ .Params.description }}
                         </p>

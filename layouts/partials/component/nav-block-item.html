@@ -29,9 +29,9 @@
             </div>
 
             <div class="w-2/3 flex flex-col justify-center px-2">
-                <a href="{{ if (.Params.internal) }}{{ .Permalink }}{{ else }}{{ .Params.link }}{{ end }}"
+                <a {{ if (.Params.internal) }}href="{{ .Permalink }}" target="_self"{{ else }}href="{{ .Params.link }}" target="_blank"{{ end }} 
                    class="block">
-                    <h3 class="text-lg font-semibold truncate pb-1" title="{{ .Title }}">{{ .Title }}</h3>
+                    <h3 class="text-lg truncate pb-1" title="{{ .Title }}">{{ .Title }}</h3>
                     {{ if site.Params.useHomePageTag }}
                         {{ with .Params.tags }}
                             <div class="flex flex-nowrap overflow-hidden max-w-full pt-1">

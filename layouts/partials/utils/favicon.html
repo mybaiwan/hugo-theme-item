@@ -4,7 +4,19 @@
 {{ $alt := .alt }}
 
 {{ if and $favicon (ne $favicon "") }}
-    <img src="{{ $favicon | safeHTML }}" class="{{ $class | safeHTML }}" loading="lazy" alt="{{ $alt | safeHTML }}"/>
+    {{ if hasPrefix $favicon "/" }}
+        <img src="{{ $favicon }}" class="{{ $class | safeHTML }}" loading="lazy" alt="{{ $alt | safeHTML }}"/>
+    {{ else if or (hasPrefix $favicon "http://") (hasPrefix $favicon "https://") }}
+        <img src="{{ $favicon | safeHTML }}" class="{{ $class | safeHTML }}" loading="lazy" alt="{{ $alt | safeHTML }}"/>
+    {{ else }}
+        {{ $localFavicon := resources.Get $favicon }}
+        {{ if $localFavicon }}
+            <img src="{{ $localFavicon.RelPermalink }}" class="{{ $class | safeHTML }}" loading="lazy" alt="{{ $alt | safeHTML }}"/>
+        {{ else }}
+            {{ $loadingGif := resources.Get "images/loading.gif" }}
+            <img src="{{ $loadingGif.RelPermalink }}" class="{{ $class | safeHTML }}" loading="lazy" alt="{{ $alt | safeHTML }}"/>
+        {{ end }}
+    {{ end }}
 {{ else }}
     {{ $host := (urls.Parse $url).Host }}
     {{ if $host }}

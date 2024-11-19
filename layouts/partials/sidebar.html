@@ -39,19 +39,19 @@
                     </ul>
                 </details>
                 {{ else }}
-                {{- if $.IsHome -}}
-                <a class="group" href="#{{ $menu.name | urlize }}">
-                    {{- else -}}
-                    <a class="group" onclick="handleToHome('{{ $menu.name | urlize }}')">
-                        {{- end -}}
-                        <span>
-                            <!--@formatter:off-->
-                            {{ partial "utils/icon" (dict "name" ($menu.icon | default "lucide-hash") "class" "h-5 w-5") }}
-                            <!--@formatter:on-->
-                        </span>
-                        {{ $menu.display | default $menu.name }}
-                    </a>
-                    {{ end }}
+                <a class="group" {{- if $.IsHome -}}
+                   href="#{{ $menu.name | urlize }}"
+                   {{- else -}}
+                   onclick="handleToHome('{{ $menu.name | urlize }}')"
+                   {{- end -}}>
+                    <span>
+                        <!--@formatter:off-->
+                        {{ partial "utils/icon" (dict "name" ($menu.icon | default "lucide-hash") "class" "h-5 w-5") }}
+                        <!--@formatter:on-->
+                    </span>
+                    {{ $menu.display | default $menu.name }}
+                </a>
+                {{ end }}
             </li>
             {{ end }}
             <li></li>

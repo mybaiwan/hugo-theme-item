@@ -32,7 +32,7 @@
                 <a {{ if (.Params.internal) }}href="{{ .Permalink }}" target="_self"{{ else }}href="{{ .Params.link }}" target="_blank"{{ end }} 
                    class="block">
                     <h3 class="text-lg truncate pb-1" title="{{ .Title }}">{{ .Title }}</h3>
-                    {{ if site.Params.useHomePageTag }}
+                    {{ if ne site.Params.useHomePageTag false }}
                         {{ with .Params.tags }}
                             <div class="flex flex-nowrap overflow-hidden max-w-full pt-1">
                                 {{ range first 3 . }}

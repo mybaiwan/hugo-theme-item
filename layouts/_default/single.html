@@ -3,7 +3,7 @@
     <div class="card items-center justify-center xl:flex-row bg-base-100">
         <div class="card-body items-center w-full max-w-7xl p-8 pt-12">
             <div class="card-title items-center mb-4">
-                {{ if eq .Type "item" }}
+                {{ if ne .Params.internal true }}
                 <div class="avatar rounded-full w-10 h-10 sm:w-12 sm:h-12 ">
                     <!--@formatter:off-->
                     {{ partial "utils/favicon" (dict "url" .Params.link "favicon" .Params.favicon "class" "rounded-full object-contain" "alt" .Title) }}
@@ -14,7 +14,7 @@
             </div>
             <div class="mb-6 flex items-center space-x-2 justify-center">
                 <ul class="mx-2 flex flex-wrap justify-center">
-                    {{ if or (ne .Type "item") .Params.internal }}
+                    {{ if eq .Params.internal true }}
                         <li class="mx-2 my-2 inline-flex items-center">
                             <!--@formatter:off-->
                             {{ partial "utils/icon" (dict "name" "lucide-circle-user" "class" "h-5 w-5 stroke-current")}}
@@ -107,7 +107,7 @@
                             </a>
                         </li>
 
-                        {{ if and (eq .Type "item") (ne .Params.internal true) }}
+                        {{ if ne .Params.internal true }}
                         <li>
                             <a class="tooltip flex" data-tip="立即访问" href="{{ .Params.link }}" target="_blank">
                                 <!--@formatter:off-->

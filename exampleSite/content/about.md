@@ -1,12 +1,13 @@
 ---
-author: Dirk Olbrich
+author: fordes123
 title: About
-date: 2019-05-13
+date: 2024-10-20
 description: A short description about me.
 keywords: [about, creator]
 type: about
+internal: true
 ---
 
-Hugo Starter Theme for Tailwindcss.
+Hugo theme for website navigation using TailwindCSS and daisyUI.
 
-Made by [me](https://github.com/dirkolbrich/).
+wiki: [hugo-theme-item](https://github.com/fordes123/hugo-theme-item/wiki).

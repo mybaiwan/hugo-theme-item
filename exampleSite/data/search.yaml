@@ -11,24 +11,7 @@
   icon: fab-wikipedia-w
   url: https://www.wikipedia.org/w/index.php?search=%s
 
-- name: Yandex
-  icon: fab-yandex
-  url: https://yandex.com/search/?text=%s
-
-- name: Steam
-  icon: fab-steam
-  url: https://store.steampowered.com/search/?term=%s
-
 - name: Github
   icon: fab-github
   url: https://github.com/search?q=%s
-
-- name: Docker
-  icon: fab-docker
-  url: https://hub.docker.com/search?q=%s
-
-- name: Youtube
-  icon: fab-youtube
-  url: https://youtube.com/results?search_query=%s
-  
   

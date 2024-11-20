@@ -1,7 +1,7 @@
 theme: "hugo-theme-item"
 languageCode: "zh-CN"
 baseurl: "https://item-hugo.fordes.dev/"
-title: "ITEM.ink"
+title: "ITEM-hugo"
 
 author: "fordes123"
 copyright: "Copyright ©2024, fordes123, all rights reserved."
@@ -15,13 +15,13 @@ params:
 
   # 站点基本信息
   siteName: "ITEM"
-  siteDesc: "修行的路总是孤独的，因为智慧必然来自孤独。"
+  siteDesc: "The journey of self-cultivation is always solitary, as wisdom inevitably arises from solitude."
   author: "fordes123"
 
   # 一言
   # 参考文档: https://developer.hitokoto.cn/sentence/
   hitokoto:
-    enable: true
+    enable: false
     category:
       - "i"
       - "k"
@@ -30,9 +30,9 @@ params:
   useHomePageTag: true
 
   sidebar:
-    - name: 示例
+    - name: About
       icon: lucide-book
-      url: "https://item-hugo.fordes.dev/"
+      url: "/about"
 
     - name: Github
       icon: lucide-github

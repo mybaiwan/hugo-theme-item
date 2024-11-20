@@ -4,30 +4,21 @@
 # background: 背景色，支持css颜色值，如 #fff, #000, red 等
 ---
 
-Amazon:
-  icon: lucide-store
-  background: "linear-gradient(45deg, #e6eeff, #b3c6ff)"
-
 Apple:
-  icon: lucide-apple
+  icon: fab-apple
   background: "linear-gradient(45deg, #ffe6e6, #ffb3b3)"
 
-直播:
-  icon: lucide-webcam
+Disney:
   background: "linear-gradient(45deg, #e6ffe6, #b3ffb3)"
 
-订阅制:
+Subscription:
   icon: lucide-podcast
   background: "linear-gradient(45deg, #fff2e6, #ffd9b3)"
 
-游戏:
-  icon: lucide-gamepad-2
+Video:
+  icon: lucide-video
   background: "linear-gradient(45deg, #f2e6ff, #d9b3ff)"
 
-UGC:
-  icon: lucide-user
-  background: "linear-gradient(45deg, #e5f2ff, #a3c6ff)"
-
-综合:
-  background: "linear-gradient(45deg, #a5f2ff, #b3cfff)"
+Test:
+  icon: lucide-flask-conical
 

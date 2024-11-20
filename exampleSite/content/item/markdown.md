@@ -1,12 +1,12 @@
 ---
-title: "hugo-theme-item"
+title: "Markdown Test"
 date: 2024-09-02T15:45:06+08:00
 draft: false
 
-link: "https://github.com/fordes123/hugo-theme-item"
-tags: ["主题", "Hugo"]
-categories: ["Frontend"]
-description: 网址导航仪表盘主题 ITEM 的 Hugo 版本，使用 Tailwind CSS 和 DaisyUI 打造
+favicon: favicon.ico
+tags: ["Test", "Markdown"]
+categories: [Stream]
+description: 
 
 katex: true
 internal: true

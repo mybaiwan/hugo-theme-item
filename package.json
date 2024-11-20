@@ -1,6 +1,6 @@
 {
     "name": "hugo-theme-item",
-    "version": "0.0.13",
+    "version": "1.0.0",
     "description": "Hugo theme for website navigation using TailwindCSS and daisyUI.",
     "main": "index.js",
     "repository": "https://github.com/fordes123/hugo-theme-item",

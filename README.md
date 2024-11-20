@@ -1,4 +1,4 @@
-# hugo-theme-item
+# Hugo Theme ITEM
 
 ![Hugo](https://img.shields.io/badge/Hugo-0.120.0-blue?logo=hugo)
 ![Node](https://img.shields.io/badge/Node.js-20.17.0-brightgreen?logo=node.js)
@@ -6,35 +6,18 @@
 
 网址导航仪表盘主题 [ITEM](https://github.com/fordes123/ITEM) 的 Hugo 版本，使用 Tailwind CSS 和 DaisyUI 打造  
 
+![screenshot](https://github.com/user-attachments/assets/ec71d4e3-bde1-4834-90cf-18e29de856f4)
+
+[文档](https://github.com/fordes123/hugo-theme-item/wiki) | [在线示例](https://item-hugo-site.vercel.app/)
+
 ## 🗒️ Todo
 
 - [x] 框架搭建
-- [ ] 主要功能实现
+- [x] 主要功能实现
+- [x] 深/浅色适配
+- [x] 部署和配置文档
 - [ ] 评论接入
-- [ ] 深/浅色适配
-- [ ] 部署和配置文档
 - [ ] 其他...
-
-## 快速开始
-
-1. 安装 Hugo、go 以及 Node.js
-2. 克隆仓库
-   ```shell
-    git clone https://github.com/fordes123/hugo-theme-item
-    cd hugo-theme-item
-    ```
-3. 安装依赖
-   ```shell
-   npm install
-   ```
-4. 初始化
-   ```shell
-    npm run init
-   ```
-5. 调试运行
-   ```shell
-   npm run dev
-   ```
 
 ---
 

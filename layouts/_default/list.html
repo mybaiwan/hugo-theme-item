@@ -39,7 +39,7 @@
 
             {{ else if eq .Kind "term" }}
             <div
-                class="card-body w-full h-60 p-4 overflow-scroll grid grid-cols-2 gap-4 md:grid-cols-3 xl:grid-cols-4 xl:gap-x-6 2xl:grid-cols-5 ">
+                class="card-body w-full h-full p-4 overflow-scroll grid grid-cols-2 gap-4 md:grid-cols-3 xl:grid-cols-4 xl:gap-x-6 2xl:grid-cols-5 ">
                 {{ partial "component/nav-block-item" (dict "name" .Name "basis" .Type ) }}
             </div>
             {{ end }}

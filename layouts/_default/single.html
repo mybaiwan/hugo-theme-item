@@ -3,7 +3,7 @@
     <div class="card items-center justify-center xl:flex-row bg-base-100">
         <div class="card-body items-center w-full max-w-7xl p-8 pt-12">
             <div class="card-title items-center mb-4">
-                {{ if ne .Params.internal true }}
+                {{ if eq .Params.internal false }}
                 <div class="avatar rounded-full w-10 h-10 sm:w-12 sm:h-12 ">
                     <!--@formatter:off-->
                     {{ partial "utils/favicon" (dict "url" .Params.link "favicon" .Params.favicon "class" "rounded-full object-contain" "alt" .Title) }}

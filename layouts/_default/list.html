@@ -13,7 +13,7 @@
                     {{ $_type := index $type .Type }}
                     {{ $item := index $_type.source .Name }}
                     <!--@formatter:off-->
-                    {{ partial "utils/icon" (dict "name" ($item.icon | default $_type.icon) "class" "h-15 w-15 stroke-current")}}
+                    {{ partial "utils/icon" (dict "name" ($item.icon | default $_type.icon) "class" "h-10 w-10 stroke-current")}}
                     <!--@formatter:on-->
                 </span>
                 <h3>{{ $item.display | default .Title }}</h3>

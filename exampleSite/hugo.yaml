@@ -42,6 +42,10 @@ params:
     - name: Github
       url: "https://github.com/fordes123/hugo-theme-item"
 
+  analytics:
+    vercel:
+      enable: false
+
 markup:
   highlight:
     style: "dracula"

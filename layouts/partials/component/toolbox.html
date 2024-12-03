@@ -1,57 +1,21 @@
-<div class="grid grid-cols-1 gap-4 md:grid-cols-5">
-    <div class="card w-full p-5 bg-base-100 shadow-sm hidden md:block md:col-span-2">
-        <div class="flex items-center justify-between card-title">
-            <button class="btn btn-sm btn-ghost font-medium no-animation">
-                <!--@formatter:off-->
-                {{ partial "utils/icon" (dict "name" "lucide-flag" "class" "inline-block h-4 w-4 stroke-current md:h-6 md:w-6") }}
-                <!--@formatter:on-->
-                Recommend
-            </button>
-        </div>
-        <div class="card-body w-full h-56 p-4 overflow-scroll">
-            <div class="overflow-x-hidden overflow-y-scroll">
-                <table class="table">
-                    <tbody>
-                        {{ if .Site.Data.recommend }}
-                        {{ $styles := slice "neutral" "primary" "secondary" "accent" "ghost" }}
-                        {{ range $index, $item := .Site.Data.recommend }}
-                        {{ $style := index $styles (mod $index 5) }}
-                        <tr>
-                            <td class="flex" title="{{ $item.name }}">
-                                <div class="badge badge-{{ $style }} rounded-full mr-2">{{ add $index 1 }}</div>
-                                <a class="truncate" href="{{ $item.url | safeURL }}" target="_blank">{{ $item.name }}</a>
-                            </td>
-                        </tr>
-                        {{ end }}
-                        {{ end }}
-                    </tbody>
-                </table>
-            </div>
-        </div>
+<div class="card h-72 w-full p-4 bg-base-100 shadow-sm col-span-1 md:col-span-3">
+    <div class="flex items-center justify-between card-title">
+        <button class="btn btn-sm btn-ghost font-medium no-animation">
+            {{ partial "utils/icon" (dict "name" "lucide-archive" "class" "inline-block h-4 w-4 stroke-current md:h-6 md:w-6") }}
+            Tools
+        </button>
     </div>
-    <div class="card w-full p-5 bg-base-100 shadow-sm col-span-1 md:col-span-3">
-        <div class="flex items-center justify-between card-title">
-            <button class="btn btn-sm btn-ghost font-medium no-animation">
-                <!--@formatter:off-->
-                {{ partial "utils/icon" (dict "name" "lucide-archive" "class" "inline-block h-4 w-4 stroke-current md:h-6 md:w-6") }}
-                <!--@formatter:on-->
-                Tools
-            </button>
+    <div
+        class="card-body h-full w-full p-4 overflow-scroll grid grid-cols-4 gap-4 sm:grid-cols-5 md:grid-cols-4 lg:grid-cols-5 2xl:grid-cols-6 lg:gap-4 xl:gap-x-8">
+        {{ range $index, $item := .Site.Data.box }}
+        <div class="flex flex-col items-center justify-center gap-y-2">
+            <a class="btn btn-circle btn-outline min-h-14 min-w-14 sm:btn-lg border-0 shadow-sm"
+                style="background: {{ $item.background | safeCSS }}" href="{{ $item.url | safeURL }}"
+                target="_blank" title="{{ $item.name }}">
+                {{ partial "utils/icon" (dict "name" $item.icon "class" "inline-block text-white h-6 w-6 sm:h-8 sm:w-8 stroke-current") }}
+            </a>
+            <label class="truncate w-full text-center text-xs sm:text-sm">{{ $item.name }}</label>
         </div>
-        <div
-            class="card-body w-full h-48 p-4 overflow-scroll grid grid-cols-4 gap-4 sm:grid-cols-5 md:grid-cols-4 lg:grid-cols-5 2xl:grid-cols-6 lg:gap-4 xl:gap-x-8">
-            {{ range $index, $item := .Site.Data.box }}
-            <div class="flex flex-col items-center justify-center gap-y-2">
-                <a class="btn btn-circle btn-outline min-h-14 min-w-14 sm:btn-lg border-0 shadow-sm"
-                    style="background: {{ $item.background | safeCSS }}" href="{{ $item.url | safeURL }}"
-                    target="_blank" title="{{ $item.name }}">
-                    <!--@formatter:off-->
-                    {{ partial "utils/icon" (dict "name" $item.icon "class" "inline-block text-white h-6 w-6 sm:h-8 sm:w-8 stroke-current") }}
-                    <!--@formatter:on-->
-                </a>
-                <label class="truncate w-full text-center text-xs sm:text-sm">{{ $item.name }}</label>
-            </div>
-            {{ end }}
-        </div>
+        {{ end }}
     </div>
 </div>

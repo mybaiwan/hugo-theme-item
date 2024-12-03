@@ -1,0 +1,41 @@
+{{/* 强制处理 weather 目录下的所有图标 */}}
+{{ $weatherDir := "images/weather" }}
+{{ range (resources.Match (printf "%s/*" $weatherDir)) }}
+    {{ .Publish }}
+{{ end }}
+
+<div id="weather-card" class="card h-72 w-full p-5 bg-base-100 shadow-sm hidden md:block md:col-span-2">
+    <div class="flex items-center justify-between card-title">
+    </div>
+    <div class="card-body p-5 text-base-content">
+        <div class="flex justify-between items-center">
+            <h2 class="weather-city font-semibold text-xl text-primary skeleton h-6 w-24"></h2>
+        </div>
+        <div class="flex justify-between border-b border-base-100 pb-3">
+            <div class="flex flex-col gap-0">
+                <p class="weather-temperature text-4xl font-semibold mb-2 text-secondary skeleton h-10 w-16"></p>
+                <p class="weather-description font-semibold skeleton h-5 w-40"></p>
+            </div>
+            <div class="weather-icon h-20 w-20 shrink-0 skeleton rounded-full">
+                <img data-base="{{ resources.Get "images/weather/" | absURL }}/" alt="" class="!my-0 h-20 w-20 hidden rounded-full">
+            </div>
+        </div>
+        <div class="divider my-0"></div>
+        <div class="mt-2 space-y-2 text-md">
+            <div class="flex items-center">
+                <!--@formatter:off-->
+                {{ partial "utils/icon" (dict "name" "lucide-calendar-days" "class" "inline-block stroke-current w-5 h-5 mr-2") }}
+                <!--@formatter:on-->
+                <span class="weather-date flex items-center skeleton h-5 w-36"></span>
+            </div>
+            <div class="flex items-center">
+                <!--@formatter:off-->
+                {{ partial "utils/icon" (dict "name" "lucide-map-pin" "class" "inline-block stroke-current !h-5 !w-5 mr-2 text-red-500") }}
+                <!--@formatter:on-->                
+                <span class="weather-location flex items-center skeleton h-5 w-48"></span>
+            </div>
+        </div>
+    </div>
+
+
+</div>

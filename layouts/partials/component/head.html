@@ -1,0 +1,10 @@
+<div class="grid grid-cols-1 gap-4 md:grid-cols-5">
+    {{ if eq site.Params.home.smallCard.type "weather" }}
+        {{ partial "component/weather" . }}
+    {{ else if eq site.Params.home.smallCard.type "recommend" }}
+        {{ partial "component/recommend" . }}
+    {{ else if eq site.Params.home.smallCard.type "carousel" }}
+        {{ partial "component/carousel" . }}
+    {{ end }}
+    {{ partial "component/toolbox" . }}
+</div>

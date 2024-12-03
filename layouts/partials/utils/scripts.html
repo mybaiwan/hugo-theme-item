@@ -12,3 +12,11 @@
 {{- if and (or .Params.katex (and .Site.Params.katex (ne .Params.katex false))) (or .IsPage .IsHome) }}
 {{ partial "katex/assets/js" . }}
 {{ end }}
+
+
+{{ if and .IsHome (eq site.Params.home.smallCard.type "weather") }}
+{{ $config := site.Params.home.smallCard.config }}
+{{ $source := $config.source | default "weather.sl.al" }}
+{{ $weather := resources.Get (printf "js/weather/%s.js" $source) | minify | fingerprint }}
+<script src="{{ $weather.RelPermalink }}"></script>
+{{ end }}

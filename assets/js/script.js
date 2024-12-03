@@ -12,6 +12,7 @@ document.addEventListener("DOMContentLoaded", () => {
     initScrolltop();
     initSearchBarScroll();
     afterToHome();
+    initCarousel();
 });
 
 
@@ -175,5 +176,38 @@ function initSearchBarScroll() {
     searchBar.addEventListener('wheel', (event) => {
         event.preventDefault();
         searchBar.scrollLeft += event.deltaY;
+    });
+}
+
+/**
+ * 初始化轮播图
+ */
+function initCarousel() {
+    const carousel = document.getElementById("carousel");
+    if (!carousel) return;
+    
+    const items = carousel.querySelectorAll('.carousel-item');
+    if (items.length <= 1) return;
+
+    let currentIndex = 0;
+    const showItem = (index) => {
+        window.location.hash = `#carousel-${index}`;
+    };
+
+    const nextItem = () => {
+        currentIndex = (currentIndex + 1) % items.length;
+        showItem(currentIndex);
+    };
+
+    let timer = setInterval(nextItem, 3000);
+    carousel.addEventListener('click', (e) => {
+        if (e.target.closest('.btn-circle')) {
+            clearInterval(timer);
+            const hash = window.location.hash;
+            if (hash.startsWith('#carousel-')) {
+                currentIndex = parseInt(hash.replace('#carousel-', ''));
+            }
+            timer = setInterval(nextItem, 3000);
+        }
     });
 }

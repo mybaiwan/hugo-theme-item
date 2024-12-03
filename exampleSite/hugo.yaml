@@ -26,9 +26,6 @@ params:
       - "i"
       - "k"
 
-  # 首页是否展示标签，如为false则使用描述(description)或正文摘要替代
-  useHomePageTag: true
-
   sidebar:
     - name: About
       icon: lucide-book
@@ -42,6 +39,18 @@ params:
     - name: Github
       url: "https://github.com/fordes123/hugo-theme-item"
 
+  # 首页配置项
+  home:
+    # 首页是否展示标签，如为false则使用描述(description)或正文摘要替代
+    useHomePageTag: true
+    # 首页小卡片配置
+    smallCard:
+      # 可选 weather(天气) carousel(卡片轮播) recommend(推荐列表)
+      type: recommend
+      # 配置，由对应type决定，具体请参考文档
+      config:
+
+  # 统计服务
   analytics:
     vercel:
       enable: false

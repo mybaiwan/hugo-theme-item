@@ -29,3 +29,4 @@
 - [hugomods/icons](https://github.com/hugomods/icons)
 - [zeon-studio/hugoplate](https://github.com/zeon-studio/hugoplate)
 - [zzzmhcn/dino](https://github.com/zzzmhcn/dino)
+- [basmilius/weather-icons](https://github.com/basmilius/weather-icons)

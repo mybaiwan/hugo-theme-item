@@ -1,0 +1,11 @@
+- name: Docker - Build and ship software on a single, collaborative platform
+  url: "https://github.com/"
+  img: https://images.unsplash.com/photo-1523217582562-09d0def993a6
+
+- name: Vercel - Your complete platform for the web.
+  url: "https://vercel.com/"
+  img: https://images.unsplash.com/photo-1428908728789-d2de25dbd4e2
+
+- name: Rapidly build modern websites without ever leaving your HTML.
+  url: "https://tailwindcss.com/"
+  img: https://images.unsplash.com/photo-1483094035713-218a81c0d971

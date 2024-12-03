@@ -4,7 +4,7 @@
 {{ $size := .size | default "sm" }}
 {{ $class := .class | default "bg-orange-400" }}
 
-{{ $floor := math.Floor $rat }}
+{{ $floor := math.Ceil $rat }}
 
 <div class="rating rating-{{ $size }} rating-half">
     {{ range seq 1 5 }}

@@ -1,7 +1,7 @@
 <div id="sidebar"
-     class="drawer-side z-30 no-scrollbar lg:max-w-64 lg:transition-all lg:duration-500 lg:ease-in-out ">
+     class="drawer-side z-30 no-scrollbar lg:max-w-56 lg:transition-all lg:duration-500 lg:ease-in-out ">
     <label for="drawer" class="drawer-overlay min-h-screen" aria-label="Close menu"></label>
-    <aside class="bg-base-100 min-h-screen w-64">
+    <aside class="bg-base-100 min-h-screen w-56">
         <div data-sveltekit-preload-data=""
              class="bg-base-100 sticky top-0 z-20 hidden items-center gap-2 bg-opacity-90 px-4 py-2 backdrop-blur lg:flex ">
             <a href="{{ .Site.BaseURL | relURL }}" aria-current="page" aria-label="Homepage" class="flex-0 btn btn-ghost px-2">
@@ -29,11 +29,7 @@
                     <ul>
                         {{ range $child := $menu.children }}
                         <li>
-                            {{- if $.IsHome -}}
-                            <a class="group" href="#{{ $child.name | urlize }}">{{ $child.display | default $child.name }}</a>
-                            {{- else -}}
-                            <a class="group" onclick="handleToHome('{{ $child.name | urlize }}')">{{ $child.display | default $child.name }}</a>
-                            {{- end -}}
+                            <a class="group" {{ if $.IsHome }} href="#{{ $child.name | urlize }}" {{ else }} onclick="handleToHome('{{ $child.name | urlize }}')" {{ end }}>{{ $child.display | default $child.name }}</a>
                         </li>
                         {{ end }}
                     </ul>

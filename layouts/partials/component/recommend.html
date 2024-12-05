@@ -1,13 +1,13 @@
-<div class="card h-72 w-full p-5 bg-base-100 shadow-sm hidden md:block md:col-span-2">
+<div class="card h-72 w-full p-4 md:p-5 bg-base-100 dark:border-2 dark:border-base-content/5 shadow-sm hidden md:block md:col-span-2">
     <div class="flex items-center justify-between card-title">
-        <button class="btn btn-sm btn-ghost font-medium no-animation">
+        <label class="flex items-center font-normal text-sm text-left">
             <!--@formatter:off-->
-            {{ partial "utils/icon" (dict "name" "lucide-flag" "class" "inline-block h-4 w-4 stroke-current md:h-6 md:w-6") }}
+            {{ partial "utils/icon" (dict "name" "lucide-flag" "class" "inline-block stroke-current h-4 w-4 md:h-5 md:w-5 mr-2") }}
             <!--@formatter:on-->
             Recommend
-        </button>
+        </label>
     </div>
-    <div class="card-body w-full h-56 p-4 overflow-scroll">
+    <div class="card-body w-full h-56 px-2 pt-4 overflow-scroll">
         <div class="overflow-x-hidden overflow-y-scroll">
             <table class="table">
                 <tbody>

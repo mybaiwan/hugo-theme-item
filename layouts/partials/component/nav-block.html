@@ -2,13 +2,13 @@
 <div class="nav-block grid mt-4 grid-cols-1 gap-4 !select-none" id="{{ $menu.name | urlize }}">
     <div class="card w-full p-4 md:p-5 bg-base-100 shadow-sm col-span-1">
         <div class="flex items-center justify-between card-title">
-            <label class="flex items-center font-normal text-sm text-left">
+            <label class="flex items-center font-normal text-sm text-left lg:ml-2">
                 <!--@formatter:off-->
                 {{ partial "utils/icon" (dict "name" $menu.icon "class" "inline-block stroke-current h-4 w-4 md:h-5 md:w-5 mr-2") }}
                 <!--@formatter:on-->
                 {{ $menu.display | default $menu.name }}</label>
             {{ if $menu.category }}
-                <div class="join mr-4 border dark:border-neutral rounded-btn bg-opacity-90 backdrop-blur ">
+                <div class="join mr-0 lg:mr-2 border dark:border-neutral rounded-btn bg-opacity-90 backdrop-blur ">
                     {{ range $category := $menu.category }}
                         {{ $_category := index site.Data.category $category }}
                         <label class="join-item btn btn-sm btn-ghost font-medium px-2" title="{{ $_category.display | default $category }}">
@@ -23,7 +23,7 @@
                 </div>
             {{ end }}
         </div>
-        <div class="card-body w-full h-60 p-4 overflow-scroll grid grid-cols-2 gap-4 md:grid-cols-3 xl:grid-cols-4 xl:gap-x-6 2xl:grid-cols-5 ">
+        <div class="card-body w-full h-full min-h-60 p-0 lg:px-2 pt-4 overflow-scroll grid grid-cols-2 gap-4 sm:grid-cols-3 md:gap-x-6 lg:grid-cols-4 xl:grid-cols-5 xl:gap-x-8 2xl:grid-cols-6">
             {{ if $menu.category }}
                 {{ range $category := $menu.category }}
                     {{ partial "component/nav-block-item" (dict "name" $category "basis" "categories") }}

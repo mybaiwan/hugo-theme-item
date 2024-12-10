@@ -16,7 +16,7 @@
 
 {{ if and .IsHome (eq site.Params.home.smallCard.type "weather") }}
 {{ $config := site.Params.home.smallCard.config }}
-{{ $source := $config.source | default "weather.sl.al" }}
+{{ $source := $config.source | default "open-meteo" }}
 {{ $weather := resources.Get (printf "js/weather/%s.js" $source) | minify | fingerprint }}
 <script src="{{ $weather.RelPermalink }}"></script>
 {{ end }}

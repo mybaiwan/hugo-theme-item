@@ -1,18 +1,18 @@
 {{ define "main" }}
     <article class="flex-1 overflow-visible p-4 lg:p-6">
         <div class="card items-center justify-center xl:flex-row bg-base-100">
-            <div class="card-body items-center w-full max-w-7xl p-8 pt-12">
-                <div class="card-title items-center mb-4">
-                    {{ if eq .Params.internal false }}
-                        <div class="avatar rounded-full w-10 h-10 sm:w-12 sm:h-12 ">
+            <div class="card-body items-center w-full max-w-7xl gap-4 px-4 pt-12 lg:px-8">
+                <div class="card-title flex flex-warp justify-center items-center w-full">
+                    <h1 class="flex items-center justify-center gap-2 text-center text-3xl lg:text-4xl break-words w-full px-10 lg:px-30">
+                        {{ if ne .Params.internal true }}
                             <!--@formatter:off-->
-                            {{ partial "utils/favicon" (dict "url" .Params.link "favicon" .Params.favicon "class" "rounded-full object-contain" "alt" .Title) }}
+                            {{ partial "utils/favicon" (dict "url" .Params.link "favicon" .Params.favicon "class" "avatar rounded-full object-contain h-[1em]" "alt" .Title) }}
                             <!--@formatter:on-->
-                        </div>
-                    {{ end }}
-                    <h1 class="text-4xl ">{{ .Title }}</h1>
+                        {{ end }}
+                        {{ .Title }}</h1>
                 </div>
-                <div class="mb-6 flex items-center space-x-2 justify-center">
+                
+                <div class="flex items-center space-x-2 justify-center mb-2">
                     <ul class="mx-2 flex flex-wrap justify-center">
                         {{ if eq .Params.internal true }}
                             <li class="mx-2 my-2 inline-flex items-center">
@@ -75,7 +75,7 @@
                         {{ end }}
                     </ul>
                 </div>
-                <div class="prose md:prose-base w-full max-w-4xl flex-grow pt-10">
+                <div class="prose prose-sm lg:prose-base w-full max-w-4xl flex-grow pt-8">
                     {{ if .Content }}
                         {{ .Content | safeHTML }}
                     {{ else }}

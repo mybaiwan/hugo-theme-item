@@ -4,11 +4,17 @@
     <aside class="bg-base-100 min-h-screen w-56">
         <div data-sveltekit-preload-data=""
              class="bg-base-100 sticky top-0 z-20 hidden items-center gap-2 bg-opacity-90 px-4 py-2 backdrop-blur lg:flex ">
-            <a href="{{ .Site.BaseURL | relURL }}" aria-current="page" aria-label="Homepage" class="flex-0 btn btn-ghost px-2">
-                <!--@formatter:off-->
-                {{ partial "utils/icon" (dict "name" "favicon.ico" "class" "h-6 w-6") }}
-                <!--@formatter:on-->
-                <div class="font-title inline-flex font-serif from-neutral-700 text-xl md:text-2xl">{{ .Site.Title }}</div>
+            <a href="{{ .Site.BaseURL | relURL }}" aria-current="page" aria-label="Homepage" class="flex-0 btn btn-ghost px-2 w-full">
+                {{ if .Site.Params.logo }}
+                    <!--@formatter:off-->
+                    {{ partial "utils/favicon" (dict "favicon" .Site.Params.logo "class" "h-full w-full object-contain") }}
+                    <!--@formatter:on-->
+                {{ else }}
+                    <!--@formatter:off-->
+                    {{ partial "utils/icon" (dict "name" "favicon.ico" "class" "h-6 w-6") }}
+                    <!--@formatter:on-->
+                    <div class="font-title inline-flex font-serif from-neutral-700 text-xl md:text-2xl">{{ .Site.Title }}</div>
+                {{ end }}
             </a>
         </div>
         <div class="h-4"></div>

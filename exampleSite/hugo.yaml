@@ -8,7 +8,7 @@ copyright: "Copyright ©2024, fordes123, all rights reserved."
 
 params:
 
-  favicon: "favicon.ico"
+  favicon: "images/favicon.ico"
   # 站点logo 展示于侧栏，当为空时将以 favicon+title 作为回退
   logo: ""
 

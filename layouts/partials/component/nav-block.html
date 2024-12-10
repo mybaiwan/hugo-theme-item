@@ -8,7 +8,7 @@
                 <!--@formatter:on-->
                 {{ $menu.display | default $menu.name }}</label>
             {{ if $menu.category }}
-                <div class="join mr-0 lg:mr-2 border dark:border-neutral rounded-btn bg-opacity-90 backdrop-blur ">
+                <div class="join mr-0 lg:mr-2 border dark:border-base-300 rounded-btn bg-opacity-90 backdrop-blur ">
                     {{ range $category := $menu.category }}
                         {{ $_category := index site.Data.category $category }}
                         <label class="join-item btn btn-sm btn-ghost font-medium px-2" title="{{ $_category.display | default $category }}">

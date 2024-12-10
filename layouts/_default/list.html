@@ -14,7 +14,7 @@
                     {{ $_type := index $type .Type }}
                     {{ $item := index $_type.source .Name }}
                     <!--@formatter:off-->
-                    {{ partial "utils/icon" (dict "name" ($item.icon | default $_type.icon) "class" "stroke-current mr-2")}}
+                    {{ partial "utils/icon" (dict "name" ($item.icon | default $_type.icon) "class" "stroke-current mr-2 w-[1em] h-[1em]")}}
                     <!--@formatter:on-->
                     {{ $item.display | default .Title }}
                 </h1>
@@ -25,7 +25,7 @@
                 <div class="p-4 overflow-scroll flex flex-wrap gap-3">
                     {{ range .Pages }}
                     {{ $item := index $_type.source .Name }} 
-                    <a class="btn btn-ghost rounded-full transition-all duration-200 border-neutral/5 dark:border-neutral border-2 hover:-translate-y-1 hover:text-primary hover:shadow hover:bg-base-200 {{ if $item.background }}dark:text-primary-content" style="background: {{ $item.background | safeCSS }}"{{ else }}dark:text-neutral-content"{{end}} href="{{ .Permalink }}" >
+                    <a class="btn btn-ghost rounded-full transition-all duration-200 border-base-content/5 dark:border-base-content/10 border-2 hover:-translate-y-1 hover:text-primary hover:shadow hover:bg-base-200 {{ if $item.background }}dark:text-primary-content" style="background: {{ $item.background | safeCSS }}"{{ else }}dark:text-base-content"{{end}} href="{{ .Permalink }}" >
                         {{ if $item }}
                         <!--@formatter:off-->
                         {{ partial "utils/icon" (dict "name" ($item.icon | default $_type.icon) "class" "inline-block") }}

@@ -21,9 +21,9 @@ module.exports = {
             {
                 dark: {
                 ...require("daisyui/src/theming/themes")["dark"],
-                "base-100": "#000000",
-                "base-200": "#141414",
-                "base-300": "#262626",
+                "base-100": "#191919",
+                "base-200": "#202020",
+                "base-300": "#232323",
               },
             },
             {

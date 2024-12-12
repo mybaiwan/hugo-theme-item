@@ -89,6 +89,7 @@ function hitokoto(cate, el) {
         .then(response => response.text())
         .then(data => {
             el.innerHTML = data;
+            el.classList.remove("skeleton");
         })
         .catch(error => {
             console.error('hitokoto request failed', error);

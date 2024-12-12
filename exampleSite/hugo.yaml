@@ -36,10 +36,18 @@ params:
     - name: Github
       icon: lucide-github
       url: "https://github.com/fordes123/hugo-theme-item"
+      target: "_blank" # default "_self"
 
   footer:
-    - name: Github
+    - name: This is Link
       url: "https://github.com/fordes123/hugo-theme-item"
+      target: "_blank" # default "_self"
+    
+    # 换行
+    - name: 
+
+    # 纯文本
+    - name: Just some text
 
   # 首页配置项
   home:

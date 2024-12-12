@@ -59,7 +59,7 @@
             <li></li>
             {{ range .Site.Params.sidebar }}
             <li>
-                <a class="group" href="{{ .url }}" target="_blank" rel="noopener noreferrer">
+                <a class="group" href="{{ .url }}" target="{{ .target | default "_self" }}" rel="noopener noreferrer">
                     <!--@formatter:off-->
                     {{ partial "utils/icon" (dict "name" .icon "class" "w-5 h-5") }}
                     <!--@formatter:on-->

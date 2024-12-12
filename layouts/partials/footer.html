@@ -9,19 +9,29 @@
 
         <div class="prose prose-sm">
             {{ if .Site.Params.SiteDesc }}
-            <p class="flex text-lg px-8">
+            <p class="flex justify-center text-lg px-8">
                 <!--@formatter:off-->
                 {{ partial "utils/icon" (dict "name" "lucide-quote" "class" "transform scale-x-[-1] h-4 w-4 mr-1") }}
                 <!--@formatter:on-->
-                <span {{ with .Site.Params.Hitokoto }} {{ if .enable }} class="hitokoto"
-                    data-category='{{ delimit .category "," }}' {{ end }} {{ end }}>
-                    {{ .Site.Params.SiteDesc }}</span>
+                {{ if .Site.Params.Hitokoto.enable }}
+                <span class="text-center hitokoto skeleton w-full" data-category='{{ delimit .Site.Params.Hitokoto.category "," }}'></span>
+                {{ else }}
+                <span class="text-center">{{ .Site.Params.SiteDesc }}</span>
+                {{ end }}
             </p>
             {{ end }}
 
             <p>© <time>{{ now.Format "2006" }}</time> {{ .Site.Params.SiteName | default "ITEM" }}.
                 {{ range .Site.Params.footer }}
-                <a href="{{ .url | relURL }}">{{ .name }}. </a>
+                {{ if .name }}
+                    {{ if .url }}
+                    <a href="{{ .url | relURL }}" target="{{ .target | default "_self" }}">{{ .name }}. </a>
+                    {{ else }}
+                        {{ .name }}
+                    {{ end }}
+                {{ else}}
+                    <br>
+                {{ end }}
                 {{ end }}
             </p>
         </div>

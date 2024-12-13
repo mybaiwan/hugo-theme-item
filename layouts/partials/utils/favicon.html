@@ -1,28 +1,16 @@
-{{ $url := .url }}
+<!-- 网址导航 favicon 图片获取 -->
+<!-- 
+    1. 如果传入 favicon 则直接使用传入的 favicon
+    2. 如果传入 link 则通过 https://favicon.im/ 自动获取 link 的 favicon
+ -->
+
+{{ $link := .link }}
 {{ $favicon := .favicon }}
 {{ $class := .class }}
 {{ $alt := .alt }}
 
 {{ if and $favicon (ne $favicon "") }}
-    {{ if hasPrefix $favicon "/" }}
-        <img src="{{ $favicon }}" class="{{ $class | safeHTML }}" loading="lazy" alt="{{ $alt | safeHTML }}"/>
-    {{ else if or (hasPrefix $favicon "http://") (hasPrefix $favicon "https://") }}
-        <img src="{{ $favicon | safeHTML }}" class="{{ $class | safeHTML }}" loading="lazy" alt="{{ $alt | safeHTML }}"/>
-    {{ else }}
-        {{ $localFavicon := resources.Get $favicon }}
-        {{ if $localFavicon }}
-            <img src="{{ $localFavicon.RelPermalink }}" class="{{ $class | safeHTML }}" loading="lazy" alt="{{ $alt | safeHTML }}"/>
-        {{ else }}
-            {{ $loadingGif := resources.Get "images/loading.gif" }}
-            <img src="{{ $loadingGif.RelPermalink }}" class="{{ $class | safeHTML }}" loading="lazy" alt="{{ $alt | safeHTML }}"/>
-        {{ end }}
-    {{ end }}
+    {{ partial "utils/img" (dict "path" $favicon "favicon" false "class" $class "alt" $alt) }}
 {{ else }}
-    {{ $host := (urls.Parse $url).Host }}
-    {{ if $host }}
-        <img src="https://favicon.im/{{ $host }}" class="{{ $class | safeHTML }}" loading="lazy" alt="{{ $alt | safeHTML }}"/>
-    {{ else }}
-        {{ $loadingGif := resources.Get "images/loading.gif" }}
-        <img src="{{ $loadingGif.RelPermalink }}" class="{{ $class | safeHTML }}" loading="lazy" alt="{{ $alt | safeHTML }}"/>
-    {{ end }}
+    {{ partial "utils/img" (dict "path" $link "favicon" true "class" $class "alt" $alt) }}
 {{ end }}

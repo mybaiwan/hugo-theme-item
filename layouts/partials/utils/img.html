@@ -1,0 +1,30 @@
+{{ $url := .path }}
+{{ $class := .class }}
+{{ $alt := .alt }}
+{{ $favicon := .favicon | default false }}
+
+{{ if and $url (ne $url "") }}
+    {{ if $favicon }}
+        {{ $host := (urls.Parse $url).Host }}
+        {{ if $host }}
+            <img src="https://favicon.im/{{ $host }}" class="{{ $class | safeHTML }}" loading="lazy" alt="{{ $alt | safeHTML }}"/>
+        {{ else }}
+            {{ $loadingGif := resources.Get "images/loading.gif" }}
+            <img src="{{ $loadingGif.RelPermalink }}" class="{{ $class | safeHTML }}" loading="lazy" alt="{{ $alt | safeHTML }}"/>
+        {{ end }}
+    {{ else }}
+        {{ if hasPrefix $url "/" }}
+            <img src="{{ $url }}" class="{{ $class | safeHTML }}" loading="lazy" alt="{{ $alt | safeHTML }}"/>
+        {{ else if or (hasPrefix $url "http://") (hasPrefix $url "https://") }}
+            <img src="{{ $url | safeHTML }}" class="{{ $class | safeHTML }}" loading="lazy" alt="{{ $alt | safeHTML }}"/>
+        {{ else }}
+            {{ $localFavicon := resources.Get $url }}
+            {{ if $localFavicon }}
+                <img src="{{ $localFavicon.RelPermalink }}" class="{{ $class | safeHTML }}" loading="lazy" alt="{{ $alt | safeHTML }}"/>
+            {{ else }}
+                {{ $loadingGif := resources.Get "images/loading.gif" }}
+                <img src="{{ $loadingGif.RelPermalink }}" class="{{ $class | safeHTML }}" loading="lazy" alt="{{ $alt | safeHTML }}"/>
+            {{ end }}
+        {{ end }}
+    {{ end }}
+{{ end }}

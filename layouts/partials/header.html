@@ -14,11 +14,11 @@
                    class="flex-0 btn btn-ghost gap-1 px-2 md:gap-2">
                    {{ if .Site.Params.logo }}
                         <!--@formatter:off-->
-                        {{ partial "utils/favicon" (dict "favicon" .Site.Params.logo "class" "h-full w-full object-contain p-2") }}
+                        {{ partial "utils/img" (dict "path" .Site.Params.logo "class" "h-full w-full object-contain p-2") }}
                         <!--@formatter:on-->
                    {{ else }}
                         <!--@formatter:off-->
-                        {{ partial "utils/icon" (dict "name" "favicon.ico" "class" "h-6 w-6 md:h-8 md:w-8") }}
+                        {{ partial "utils/img" (dict "path" "favicon.ico" "class" "h-6 w-6 md:h-8 md:w-8") }}
                         <!--@formatter:on-->
                         <span class="font-title text-base-content font-serif from-neutral-700 text-xl md:text-2xl">{{ .Site.Title }}</span>
                     {{ end }}

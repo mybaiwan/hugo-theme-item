@@ -6,7 +6,7 @@
                     <h1 class="flex items-center justify-center gap-2 text-center text-3xl lg:text-4xl break-words w-full px-10 lg:px-30">
                         {{ if ne .Params.internal true }}
                             <!--@formatter:off-->
-                            {{ partial "utils/favicon" (dict "url" .Params.link "favicon" .Params.favicon "class" "avatar rounded-full object-contain h-[1em]" "alt" .Title) }}
+                            {{ partial "utils/favicon" (dict "link" .Params.link "favicon" .Params.favicon "class" "avatar rounded-full object-contain h-[1em]" "alt" .Title) }}
                             <!--@formatter:on-->
                         {{ end }}
                         {{ .Title }}</h1>

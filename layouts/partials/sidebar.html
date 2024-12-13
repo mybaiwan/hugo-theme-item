@@ -7,11 +7,11 @@
             <a href="{{ .Site.BaseURL | relURL }}" aria-current="page" aria-label="Homepage" class="flex-0 btn btn-ghost px-2 w-full">
                 {{ if .Site.Params.logo }}
                     <!--@formatter:off-->
-                    {{ partial "utils/favicon" (dict "favicon" .Site.Params.logo "class" "h-full w-full object-contain") }}
+                    {{ partial "utils/img" (dict "path" .Site.Params.logo "class" "h-full w-full object-contain") }}
                     <!--@formatter:on-->
                 {{ else }}
                     <!--@formatter:off-->
-                    {{ partial "utils/icon" (dict "name" "favicon.ico" "class" "h-6 w-6") }}
+                    {{ partial "utils/img" (dict "path" .Site.Params.favicon "class" "h-6 w-6") }}
                     <!--@formatter:on-->
                     <div class="font-title inline-flex font-serif from-neutral-700 text-xl md:text-2xl">{{ .Site.Title }}</div>
                 {{ end }}

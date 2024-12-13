@@ -19,7 +19,7 @@
                 <a href="{{ .Permalink }}" class="block relative">
                     <div class="avatar rounded-full w-10 h-10 sm:w-12 sm:h-12 z-20">
                         <!--@formatter:off-->
-                        {{ partial "utils/favicon" (dict "url" .Params.link "favicon" .Params.favicon "class" "rounded-full object-contain" "alt" .Title) }}
+                        {{ partial "utils/favicon" (dict "link" .Params.link "favicon" .Params.favicon "class" "rounded-full object-contain" "alt" .Title) }}
                         <!--@formatter:on-->
                     </div>
                     {{ if (.Params.internal) }}

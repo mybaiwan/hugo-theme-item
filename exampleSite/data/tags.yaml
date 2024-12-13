@@ -4,21 +4,18 @@
 # background: 背景色，支持css颜色值，如 #fff, #000, red 等
 ---
 
-Apple:
-  icon: fab-apple
+Git:
+  icon: fas-code-branch
   background: "linear-gradient(45deg, #ffe6e6, #ffb3b3)"
 
-Disney:
+Readme:
+  icon: lucide-bookmark
+
+Serverless:
+  icon: lucide-server
   background: "linear-gradient(45deg, #e6ffe6, #b3ffb3)"
 
-Subscription:
-  icon: lucide-podcast
-  background: "linear-gradient(45deg, #fff2e6, #ffd9b3)"
+"CSS":
 
-Video:
-  icon: lucide-video
-  background: "linear-gradient(45deg, #f2e6ff, #d9b3ff)"
-
-Test:
+"UI":
   icon: lucide-flask-conical
-

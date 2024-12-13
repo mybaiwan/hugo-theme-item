@@ -5,6 +5,8 @@
 # children: 子菜单，！注意子菜单不能再拥有子菜单
 # category: 菜单下的分类，与 category.yaml 中的键名相对应 ！注意：当拥有children时，category将失效
 ---
+- name: Default
+  icon: lucide-atom
 
 - name: "Media"
   icon: fas-play
@@ -38,7 +40,7 @@
     - MacSoftware
     - AndroidSoftware
 
-- name: "OpenSourceProjects"
+- name: "OpenSource"
   icon: lucide-git-branch
   category:
     - Frontend

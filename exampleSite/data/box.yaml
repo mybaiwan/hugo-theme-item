@@ -5,27 +5,27 @@
 # background: 背景色，支持css颜色值，如 #fff, #000, red 等
 ---
 
-- name: Speedtest
-  icon: fas-gauge-simple
-  url: https://www.speedtest.net
+- name: Github
+  icon: fab-github
+  url: https://www.github.com
   background: "linear-gradient(120deg, #a3f7ec, #4fdcca)"
 
-- name: TempMail
-  icon: fas-at
-  url: https://temp-mail.org/
+- name: Vercel
+  icon: lucide-server
+  url: https://vercel.com
   background: "linear-gradient(45deg, #b5b4ff, #7675f9)"
 
-- name: Markdown
-  icon: fab-markdown
-  url: https://markdown.lovejade.cn/
+- name: Hugo
+  icon: lucide-flask-conical
+  url: https://hugo.gohugo.io
   background: "linear-gradient(120deg, #ffd495, #ffa31b)"
 
-- name: File Share
+- name: TailwindCSS
   icon: fas-infinity
-  url: https://wormhole.app/
+  url: https://tailwindcss.com
   background: "linear-gradient(120deg, #663d74, #dcc7e1)"
 
-- name: DNS Leak
-  icon: fas-route
-  url: https://browserleaks.com/dns
-  background: "linear-gradient(120deg, #d4fc79 0%, #96e6a1 100%)"
+- name: DaisyUI
+  icon: <svg viewBox="0 0 415 415" xmlns="http://www.w3.org/2000/svg"><rect x="82.5" y="290" width="250" height="125" rx="62.5" fill="#1AD1A5"></rect><circle cx="207.5" cy="135" r="130" fill="black" fill-opacity=".3"></circle><circle cx="207.5" cy="135" r="125" fill="white"></circle><circle cx="207.5" cy="135" r="56" fill="#FF9903"></circle></svg>
+  url: https://daisyui.com
+  background: "linear-gradient(45deg, #e6ffe6, #b3ffb3)"

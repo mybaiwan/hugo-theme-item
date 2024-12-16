@@ -38,15 +38,12 @@ cd hugo-theme-item
 
 # install dependencies
 echo "Installing project dependencies..."
-npm install
-
-# init
-echo "Initialize Hugo modules..."
-npm run init
+npm install -g yarn
+yarn
 
 # run the build command
 echo "Running the build command..."
-npm run build
+yarn build
 
 # update the baseurl
 echo "Update the baseurl..."

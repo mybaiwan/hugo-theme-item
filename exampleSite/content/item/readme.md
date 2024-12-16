@@ -12,7 +12,7 @@ katex: true
 internal: true
 ---
 
-![Hugo](https://img.shields.io/badge/Hugo-0.120.0-blue?logo=hugo)
+![Hugo](https://img.shields.io/badge/Hugo-0.130.0-blue?logo=hugo)
 ![Node](https://img.shields.io/badge/Node.js-20.17.0-brightgreen?logo=node.js)
 ![Go](https://img.shields.io/badge/Go-1.22.0-blue?logo=go)
 

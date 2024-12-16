@@ -4,5 +4,5 @@ command = "yarn; yarn build"
 
 [build.environment]
 GO_VERSION = "1.22.0"
-HUGO_VERSION = "0.120.0"
+HUGO_VERSION = "0.130.0"
 HUGO_THEME = "repo"

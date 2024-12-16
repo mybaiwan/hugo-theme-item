@@ -3,7 +3,7 @@
 	"build": {
 		"dockerfile": "Dockerfile",
 		"args": {
-			"GO_VERSION": "1.22.5",
+			"GO_VERSION": "1.22.0",
 			"HUGO_VERSION": "0.130.0"
 		}
 	},
@@ -18,6 +18,6 @@
 		}
 	},
 	"remoteUser": "node",
-	"postCreateCommand": "npm install && npm run init",
+	"postCreateCommand": "yarn",
 	"forwardPorts": [1313]
 }

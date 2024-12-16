@@ -2,7 +2,7 @@
 
 # default versions
 NODE_VERSION='20.17.0';
-GO_VERSION='1.22.5';
+GO_VERSION='1.22.0';
 HUGO_VERSION='0.130.0';
 
 # install Node.js
@@ -38,15 +38,12 @@ cd hugo-theme-item
 
 # install dependencies
 echo "Installing project dependencies..."
-npm install
-
-# init
-echo "Initialize Hugo modules..."
-npm run init
+#npm install -g yarn
+yarn
 
 # run the build command
 echo "Running the build command..."
-npm run build
+yarn build
 
 # update the baseurl
 echo "Update the baseurl..."

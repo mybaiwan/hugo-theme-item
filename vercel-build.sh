@@ -38,7 +38,7 @@ cd hugo-theme-item
 
 # install dependencies
 echo "Installing project dependencies..."
-npm install -g yarn
+#npm install -g yarn
 yarn
 
 # run the build command

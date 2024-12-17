@@ -6,7 +6,7 @@
 
 A Hugo version of the website navigation dashboard theme [ITEM](https://github.com/fordes123/ITEM), built with Tailwind CSS and DaisyUI.  
 
-[Document](https://github.com/fordes123/hugo-theme-item/wiki) | [Live Demo](https://item-hugo.vercel.app/)
+[Document](https://github.com/fordes123/hugo-theme-item/wiki) | [Live Demo](https://item-hugo.netlify.app/)
 ![screenshot](https://github.com/user-attachments/assets/ec71d4e3-bde1-4834-90cf-18e29de856f4)
 
 

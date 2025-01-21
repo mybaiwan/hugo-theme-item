@@ -13,6 +13,10 @@
 {{ partial "katex/assets/js" . }}
 {{ end }}
 
+{{ if $.IsHome }}
+{{ $js := resources.Get "js/search.js" | js.Build (dict "format" "esm" "targetPath" "js/search.js") | minify | fingerprint }}
+<script type="module" src="{{ $js.RelPermalink }}"></script>
+{{ end }}
 
 {{ if and .IsHome (eq site.Params.home.smallCard.type "weather") }}
 {{ $config := site.Params.home.smallCard.config }}

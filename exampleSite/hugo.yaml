@@ -76,3 +76,9 @@ markup:
 # 本主题不支持 section，它们会被重定向到首页，因此最好在此处禁用
 disableKinds:
   - section
+
+# 禁用JSON输出会导致站内搜索无法工作
+outputs:
+  home:
+    - HTML
+    - JSON

@@ -2,7 +2,6 @@
     initDrawer(1024);
     initNavBlock();
     initBtmBar();
-    initSearch();
 })();
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -150,22 +149,6 @@ function afterToHome() {
             element.scrollIntoView({ behavior: 'smooth', block: 'center' });
         }
     }
-}
-
-/**
- * 初始化搜索框
- */
-function initSearch() {
-    const input = document.getElementById("search-input");
-    if (!input) return;
-    input.addEventListener("keydown", e => {
-        if (e.key !== "Enter") return;
-        const element = document.querySelector('input[name="search-item"]:checked');
-        if (element) {
-            const url = element.value.replace(/%s/g, input.value);
-            window.open(url, "_blank");
-        }
-    });
 }
 
 /**

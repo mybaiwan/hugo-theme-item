@@ -1,11 +1,22 @@
 <div class="grid mt-4 grid-cols-1 gap-6 !select-none">
     <div class="card w-full p-4 md:p-5 bg-base-100 shadow-sm col-span-1 ">
-        <ul id="search-bar" class="flex flex-nowrap overflow-x-scroll scroll-smooth no-scrollbar menu menu-horizontal mb-4 px-0 ">
+        <ul id="search-bar"
+            class="flex flex-nowrap overflow-x-scroll scroll-smooth no-scrollbar menu menu-horizontal mb-4 px-0 ">
+            <li>
+                <label class="rounded-box mr-1 px-3 text-xs lg:mr-2 lg:px-4 lg:text-sm">
+                    <input type="radio" id="inner-search" name="search-item" class="hidden" checked>
+                    <!--@formatter:off-->
+                    {{ partial "utils/icon" (dict "name" "lucide-search" "class" "inline-block h-4 w-4 lg:h-5 lg:w-5 stroke-current") }}
+                    <!--@formatter:on-->
+                    <span>站内</span>
+                    
+                </label>
+            </li>
             {{ range $index, $item := .Site.Data.search }}
-                <li>
-                    <label class="rounded-box mr-1 px-3 text-xs lg:mr-2 lg:px-4 lg:text-sm">
-                        <input type="radio" value="{{ $item.url }}" name="search-item" class="hidden" {{ if eq $index 0 }}checked{{ end }}>
-                        <!--@formatter:off-->
+            <li>
+                <label class="rounded-box mr-1 px-3 text-xs lg:mr-2 lg:px-4 lg:text-sm">
+                    <input type="radio" value="{{ $item.url }}" name="search-item" class="hidden">
+                    <!--@formatter:off-->
                         {{ partial "utils/icon" (dict "name" $item.icon "class" "inline-block h-4 w-4 lg:h-5 lg:w-5 stroke-current") }}
                         <!--@formatter:on-->
                         <span>{{ $item.name }}</span>
@@ -13,12 +24,20 @@
                 </li>
             {{ end }}
         </ul>
-        <label class="input input-bordered flex items-center gap-2">
-            <!--@formatter:off-->
-            {{ partial "utils/icon" (dict "name" "lucide-search" "class" "h-4 w-4 opacity-70") }}
-            <!--@formatter:on-->
-            <input id="search-input" type="text" class="grow" placeholder="Search"/>
-            <kbd class="kbd kbd-sm">Enter</kbd>
-        </label>
+        
+        <div id="search-collapse" class="collapse collapse-close">
+            <div class="collapse-title px-1 py-2">
+                <label class="input input-bordered flex items-center gap-2">
+                    <!--@formatter:off-->
+                    {{ partial "utils/icon" (dict "name" "lucide-search" "class" "h-4 w-4 opacity-70") }}
+                    <!--@formatter:on-->
+                    <input id="search-input" type="text" class="grow" placeholder="Search"/>
+                    <kbd class="kbd kbd-sm">Enter</kbd>
+                </label>
+            </div>
+            <div class="collapse-content w-full overflow-y-scroll px-1 pt-2 pb-0">
+                <a class="display-none menu-title gap-3 max-h-48"></a>
+            </div>
+          </div>
     </div>
 </div>

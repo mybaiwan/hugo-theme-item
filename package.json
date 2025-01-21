@@ -25,6 +25,7 @@
         "postcss": "^8.4.x",
         "postcss-cli": "^11.x",
         "tailwindcss": "^3.4.x",
-        "daisyui": "^4.12.x"
+        "daisyui": "^4.12.x",
+        "fuse.js": "7.0.x"
     }
 }

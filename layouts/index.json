@@ -1,0 +1,26 @@
+{{- $.Scratch.Add "index" slice -}}
+{{- range .Site.RegularPages -}}
+    {{- $date := .Date.Format "2006, 01-02" -}}
+    {{- $categories := slice -}}
+    {{- range .Params.categories -}}
+        {{- $_category := index site.Data.category . -}}
+        {{- $categories = $categories | append (dict "name" . "icon" $_category.icon "display" $_category.display "background" $_category.background ) -}}
+    {{- end -}}
+
+    {{- $link := "" -}}
+    {{ if eq .Params.internal true }}
+        {{- $link = .Permalink -}}
+    {{ else }}
+        {{- $link = .Params.link -}}
+    {{ end }}
+
+    {{- $desc := or .Params.description .Summary -}}
+
+    {{- $favicon := partial "utils/favicon" (dict "link" .Params.link "favicon" .Params.favicon "class" "inline-block h-5 w-5 rounded-full object-contain") -}}
+
+    {{- if $link -}}
+        {{- $.Scratch.Add "index" (dict "title" .Title "tags" .Params.tags "categories" $categories "summary" $desc "permalink" $link "date" $date "internal" (eq .Params.internal true) "favicon" $favicon) -}}
+    {{- end -}}
+
+{{- end -}}
+{{- $.Scratch.Get "index" | jsonify -}}

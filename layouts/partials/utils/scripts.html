@@ -1,6 +1,3 @@
-{{ $darkMode := resources.Get "js/dark-mode.js" | minify | fingerprint }}
-<script src="{{ $darkMode.RelPermalink }}"></script>
-
 {{ $sidebar := resources.Get "js/script.js" | minify | fingerprint }}
 <script src="{{ $sidebar.RelPermalink }}"></script>
 

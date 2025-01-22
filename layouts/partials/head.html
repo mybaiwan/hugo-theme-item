@@ -39,22 +39,8 @@
     {{ partialCached "utils/css" . }}
 
     <script>
-        let state = localStorage.getItem("data-theme") || "{{ .Site.Params.themePreset }}";
-        if (state === null || state === "default") {
-            localStorage.setItem("data-theme", "default");
-            state = window.matchMedia('(prefers-color-scheme: dark)').matches ? "dark" : "light";
-        }
-
-        function applyTheme(isDark) {
-            document.documentElement.setAttribute("data-theme", isDark ? "dark" : "light");
-        }
-
-        window.matchMedia("(prefers-color-scheme: dark)").addEventListener('change', event => {
-            if (localStorage.getItem("data-theme") === "default") {
-                applyTheme(event.matches);
-            }
-        });
-
-        applyTheme(state === "dark");
+        const state = localStorage.getItem("data-theme") || '{{ .Site.Params.themePreset | default "default" }}';
+        const value = state === "default" ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? "dark" : "light") : state;
+        document.documentElement.setAttribute("data-theme", value);
     </script>
 </head>

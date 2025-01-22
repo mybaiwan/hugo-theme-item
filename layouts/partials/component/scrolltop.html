@@ -1,10 +1,7 @@
-<div class="scrolltop sticky bottom-8 pr-8 w-full mx-auto bg-transparent invisible">
-    <div class="flex justify-end">
-        <a href="#" 
-           class="btn btn-circle btn-ghost dark:bg-base-300 bg-base-100 shadow-md hover:shadow-lg hover:text-primary">
-            <!--@formatter:off-->
-            {{ partial "utils/icon" (dict "name" "lucide-arrow-big-up-dash" "class" "h-6 w-6 stroke-current")}}
-            <!--@formatter:on-->
-        </a>
-    </div>
+<div class="scrolltop z-50 sticky flex justify-end pointer-events-none bottom-8 pr-8 w-full mx-auto bg-transparent invisible">
+    <label class="btn btn-circle !dark:bg-base-300 !bg-base-100 border shadow-md hover:shadow-xl hover:text-primary pointer-events-auto">
+        <!--@formatter:off-->
+        {{ partial "utils/icon" (dict "name" "lucide-arrow-big-up-dash" "class" "h-6 w-6 stroke-current")}}
+        <!--@formatter:on-->
+    </label>
 </div>

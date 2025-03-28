@@ -58,17 +58,19 @@ if (card) {
 }
 
 function fetchWeatherData() {
-    fetch(`https://api.qjqq.cn/api/Local`)
+    fetch(`https://ip.item.ink/?adapter=ip-api`)
         .then(response => response.json())
         .then(data => {
-            let _data = data.data;
-            if(_data.city && _data.country && _data.lat && _data.lng) {
-                city.innerHTML = _data.city;
-                region.innerHTML = _data.country + ", " + _data.city;
+            let _country = data.region.country;
+            let _city = data.region.city;
+            let _province = data.region.province;
+            if(_country && _city && data.lat && data.lng) {
+                city.innerHTML = _city;
+                region.innerHTML = _country + ", " + _province || _city ;
                 city.classList.remove("skeleton");
                 region.classList.remove("skeleton");
 
-                return fetch(`https://api.open-meteo.com/v1/forecast?latitude=${_data.lat}&longitude=${_data.lng}&current=apparent_temperature,weather_code`);
+                return fetch(`https://api.open-meteo.com/v1/forecast?latitude=${data.lat}&longitude=${data.lng}&current=apparent_temperature,weather_code`);
             }
             throw new Error("request ip location failed");
         })
